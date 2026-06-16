@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Principal Engineer Learning Path</title>
+<title>Principal Engineer Learning Path — 6-Month Curriculum</title>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.19.0/dist/tabler-icons.min.css">
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
@@ -14,72 +14,99 @@
   --coral:#D85A30;--coral-light:#FAECE7;--coral-dark:#712B13;
   --green:#3B6D11;--green-light:#EAF3DE;--green-dark:#27500A;
   --blue:#378ADD;--blue-light:#E6F1FB;--blue-dark:#0C447C;
+  --pink:#8B3A6B;--pink-light:#F5E8F0;--pink-dark:#5C1E46;
+  --slate:#3D4A5C;--slate-light:#E8ECF0;--slate-dark:#1A2230;
+  --brown:#7A4F2D;--brown-light:#F2EAE2;--brown-dark:#4A2A12;
   --border:#E2E0D8;--border-em:#C8C5BC;
   --ink:#1a1a18;--muted:#5a5a56;--faint:#9b9b96;
   --surface:#ffffff;--raised:#f7f6f2;--bg:#f0efe9;
   --r:14px;--rm:9px;
 }
-@media(prefers-color-scheme:dark){
-  :root{
-    --border:#2e2e2b;--border-em:#3e3e3b;
-    --ink:#e8e6df;--muted:#9b9b96;--faint:#5f5e5a;
-    --surface:#1e1e1c;--raised:#252523;--bg:#141412;
-    --purple-light:#26215C;--teal-light:#04342C;--amber-light:#412402;
-    --coral-light:#4A1B0C;--green-light:#173404;--blue-light:#042C53;
-    --purple-dark:#CECBF6;--teal-dark:#9FE1CB;--amber-dark:#FAC775;
-    --coral-dark:#F5C4B3;--green-dark:#C0DD97;--blue-dark:#B5D4F4;
-  }
-}
+@media(prefers-color-scheme:dark){:root{
+  --border:#2e2e2b;--border-em:#3e3e3b;
+  --ink:#e8e6df;--muted:#9b9b96;--faint:#5f5e5a;
+  --surface:#1e1e1c;--raised:#252523;--bg:#141412;
+  --purple-light:#26215C;--teal-light:#04342C;--amber-light:#412402;
+  --coral-light:#4A1B0C;--green-light:#173404;--blue-light:#042C53;
+  --pink-light:#3C1028;--slate-light:#1A2230;--brown-light:#2A1A0A;
+  --purple-dark:#CECBF6;--teal-dark:#9FE1CB;--amber-dark:#FAC775;
+  --coral-dark:#F5C4B3;--green-dark:#C0DD97;--blue-dark:#B5D4F4;
+  --pink-dark:#E8B4D0;--slate-dark:#B0BCCC;--brown-dark:#D4B49A;
+}}
 html{scroll-behavior:smooth}
 body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;color:var(--ink);background:var(--bg);line-height:1.7;font-size:17px;min-height:100vh}
-.page{max-width:1120px;margin:0 auto;padding:2.5rem 2.5rem 5rem}
+.page{max-width:1160px;margin:0 auto;padding:2.5rem 2.5rem 5rem}
 .hero{padding:3rem 0 2rem;text-align:center}
 .hero-badge{display:inline-flex;align-items:center;gap:7px;font-size:12px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:var(--purple);background:var(--purple-light);padding:5px 16px;border-radius:99px;margin-bottom:1.1rem}
 .hero h1{font-size:38px;font-weight:700;line-height:1.2;margin-bottom:.7rem;color:var(--ink)}
-.hero p{font-size:17px;color:var(--muted);max-width:580px;margin:0 auto 2rem;line-height:1.75}
-.prog-wrap{background:var(--raised);border-radius:99px;height:7px;overflow:hidden;border:.5px solid var(--border);margin-bottom:.4rem}
+.hero p{font-size:17px;color:var(--muted);max-width:620px;margin:0 auto 2rem;line-height:1.75}
+.hero-stats{display:flex;justify-content:center;gap:2rem;flex-wrap:wrap}
+.stat{text-align:center}
+.stat-num{font-size:28px;font-weight:700;color:var(--purple)}
+.stat-lbl{font-size:13px;color:var(--muted);margin-top:2px}
+.prog-wrap{background:var(--raised);border-radius:99px;height:7px;overflow:hidden;border:.5px solid var(--border);margin-bottom:.4rem;margin-top:2rem}
 .prog-fill{height:100%;background:var(--purple);border-radius:99px;transition:width .5s ease;width:0%}
 .prog-label{font-size:13px;color:var(--faint);text-align:right;margin-bottom:2rem}
-.weeks{display:grid;grid-template-columns:repeat(8,1fr);gap:8px;margin-bottom:2rem}
-.week-dot{height:54px;border-radius:var(--rm);background:var(--surface);border:.5px solid var(--border);display:flex;flex-direction:column;align-items:center;justify-content:center;cursor:pointer;transition:all .2s}
-.week-dot span{font-size:18px;font-weight:700;display:block;color:var(--ink)}
-.week-dot label{font-size:10px;display:block;color:var(--faint);cursor:pointer;margin-top:2px}
-.week-dot.done{background:var(--purple-light);border-color:var(--purple)}
-.week-dot.done span,.week-dot.done label{color:var(--purple-dark)}
-.week-dot.active{background:var(--purple);border-color:var(--purple)}
-.week-dot.active span,.week-dot.active label{color:#fff}
+.phase-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:2rem}
+.phase-card{background:var(--surface);border:.5px solid var(--border);border-radius:var(--r);padding:1rem 1.25rem;cursor:pointer;transition:all .2s;text-align:center}
+.phase-card:hover,.phase-card.active{border-color:var(--purple);background:var(--purple-light)}
+.phase-card.active .phase-label{color:var(--purple-dark)}
+.phase-label{font-size:12px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--faint);margin-bottom:3px}
+.phase-title{font-size:15px;font-weight:600;color:var(--ink)}
+.phase-weeks{font-size:12px;color:var(--muted);margin-top:2px}
+.timeline{display:grid;grid-template-columns:repeat(6,1fr);gap:6px;margin-bottom:1.5rem}
+.wk-dot{border-radius:var(--rm);background:var(--surface);border:.5px solid var(--border);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:.5rem .35rem;cursor:pointer;transition:all .2s;min-height:62px}
+.wk-dot span{font-size:14px;font-weight:700;display:block;color:var(--ink)}
+.wk-dot .wk-lbl{font-size:9px;color:var(--faint);text-align:center;line-height:1.3;margin-top:2px}
+.wk-dot.done{background:var(--purple-light);border-color:var(--purple)}
+.wk-dot.done span,.wk-dot.done .wk-lbl{color:var(--purple-dark)}
+.wk-dot.active{background:var(--purple);border-color:var(--purple)}
+.wk-dot.active span,.wk-dot.active .wk-lbl{color:#fff}
+.week-panel{background:var(--surface);border:.5px solid var(--border);border-radius:var(--r);padding:1.35rem 1.5rem;margin-bottom:2rem;display:none;animation:fadeIn .2s}
+.week-panel.shown{display:block}
+@keyframes fadeIn{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
+.wp-head{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:.85rem}
+.wp-week{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--faint);margin-bottom:3px}
+.wp-focus{font-size:17px;font-weight:700;color:var(--ink)}
+.wp-close{background:transparent;border:none;font-size:20px;cursor:pointer;color:var(--faint);line-height:1;padding:2px 4px}
+.wp-body{display:grid;grid-template-columns:1fr auto;gap:1.5rem;align-items:start}
+.wp-desc{font-size:15px;color:var(--muted);line-height:1.7;margin-bottom:.75rem}
+.wp-tip{font-size:13px;background:var(--amber-light);color:var(--amber-dark);border-radius:var(--rm);padding:.5rem .85rem;line-height:1.55;margin-bottom:.5rem}
+.wp-deliverable{font-size:13px;background:var(--green-light);color:var(--green-dark);border-radius:var(--rm);padding:.5rem .85rem;display:flex;gap:6px;line-height:1.5}
+.wp-del-chip{display:flex;flex-direction:column;gap:4px}
 .mod-nav{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:2.5rem}
-.mod-pill{font-size:13px;padding:7px 16px;border-radius:99px;border:.5px solid var(--border-em);cursor:pointer;transition:all .2s;color:var(--muted);background:var(--surface);font-family:inherit}
+.mod-pill{font-size:13px;padding:7px 16px;border-radius:99px;border:.5px solid var(--border-em);cursor:pointer;transition:all .2s;color:var(--muted);background:var(--surface);font-family:inherit;white-space:nowrap}
 .mod-pill:hover{background:var(--raised);color:var(--ink)}
-.mod-pill.active{background:var(--purple);color:#fff;border-color:var(--purple)}
+.mod-pill.active{color:#fff;border-color:transparent}
 .section{display:none}.section.visible{display:block}
-.mod-grid{display:grid;grid-template-columns:1fr 360px;gap:2.5rem;align-items:start;margin-top:1.5rem}
+.hook{border-radius:var(--r);padding:1.75rem 2rem;margin-bottom:1.25rem;border-left:4px solid}
+.hook-eyebrow{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;opacity:.55;margin-bottom:.5rem}
+.hook-q{font-size:22px;font-weight:700;line-height:1.35;margin-bottom:.6rem}
+.hook-sub{font-size:15px;line-height:1.75;opacity:.82}
+.mod-tabs{display:flex;gap:0;margin-bottom:1.75rem;border-bottom:1px solid var(--border);overflow-x:auto}
+.mod-tab{font-size:14px;font-weight:600;padding:.75rem 1.25rem;border:none;background:transparent;cursor:pointer;color:var(--muted);border-bottom:2px solid transparent;margin-bottom:-1px;white-space:nowrap;font-family:inherit;transition:all .15s}
+.mod-tab:hover{color:var(--ink)}
+.mod-tab.active{color:var(--purple);border-bottom-color:var(--purple)}
+.tab-panel{}.hidden{display:none}
+.mod-grid{display:grid;grid-template-columns:1fr 360px;gap:2.5rem;align-items:start}
 .mod-main{min-width:0}
 .mod-sidebar{min-width:0;display:flex;flex-direction:column;gap:1.25rem}
-.hook{border-radius:var(--r);padding:1.75rem 2rem;margin-bottom:0;border-left:4px solid var(--purple)}
-.hook-q{font-size:21px;font-weight:700;line-height:1.35;margin-bottom:.6rem}
-.hook-sub{font-size:15px;line-height:1.75;opacity:.8}
 .anchor{background:var(--surface);border:.5px solid var(--border);border-radius:var(--r);padding:1.5rem;display:flex;gap:1.25rem;align-items:flex-start;margin-bottom:1.75rem}
 .anchor-vis{width:80px;height:80px;border-radius:var(--rm);display:flex;align-items:center;justify-content:center;font-size:36px;flex-shrink:0}
 .anchor-label{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--faint);margin-bottom:5px}
 .anchor-name{font-size:17px;font-weight:700;color:var(--ink);margin-bottom:4px}
 .anchor-metaphor{font-size:14px;color:var(--muted);font-style:italic;line-height:1.65}
-.story-bubble{background:var(--raised);border-radius:var(--r);padding:1.25rem 1.5rem;margin-bottom:10px;border-left:4px solid var(--purple)}
-.story-who{font-size:13px;font-weight:700;color:var(--purple);margin-bottom:5px}
+.obj-card{background:var(--surface);border:.5px solid var(--border);border-radius:var(--r);padding:1.35rem 1.5rem;margin-bottom:1.75rem}
+.obj-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px 1.5rem;margin-top:.75rem}
+.obj-row{display:flex;gap:10px;align-items:flex-start;font-size:14px;color:var(--muted);line-height:1.6;padding:4px 0}
+.obj-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0;margin-top:6px}
+.story-bubble{background:var(--raised);border-radius:var(--r);padding:1.25rem 1.5rem;margin-bottom:10px;border-left:4px solid}
+.story-who{font-size:13px;font-weight:700;margin-bottom:5px}
 .story-text{font-size:15px;color:var(--ink);line-height:1.8}
 .model-card{border-radius:var(--r);padding:1.6rem 1.75rem;margin-bottom:1.75rem;position:relative;overflow:hidden}
 .model-label{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.6);margin-bottom:.5rem}
 .model-text{font-size:17px;font-weight:600;color:#fff;line-height:1.65;max-width:88%}
-.model-emoji{position:absolute;right:1.5rem;top:50%;transform:translateY(-50%);font-size:48px;opacity:.4}
-.aha{border-radius:var(--rm);padding:1.1rem 1.4rem;display:flex;gap:12px;align-items:flex-start}
-.aha-icon{font-size:20px;flex-shrink:0;margin-top:1px}
-.aha-title{font-size:14px;font-weight:700;margin-bottom:3px}
-.aha-body{font-size:13px;line-height:1.65;opacity:.85}
-.kmap{background:var(--surface);border:.5px solid var(--border);border-radius:var(--r);padding:1.1rem 1.25rem}
-.kmap-label{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--faint);margin-bottom:.85rem}
-.kmap-inner{display:flex;align-items:center;flex-wrap:wrap;gap:5px}
-.kmap-node{padding:5px 13px;border-radius:99px;font-size:12px;font-weight:600;white-space:nowrap}
-.kmap-arrow{font-size:14px;color:var(--faint)}
+.model-emoji{position:absolute;right:1.5rem;top:50%;transform:translateY(-50%);font-size:48px;opacity:.35}
 .recall-card{border:.5px solid var(--border-em);border-radius:var(--r);overflow:hidden;margin-bottom:1.75rem}
 .recall-q{padding:1.35rem 1.5rem;background:var(--raised)}
 .recall-q-label{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--amber);margin-bottom:.5rem}
@@ -90,14 +117,21 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;co
 .recall-a-text{font-size:15px;color:var(--ink);line-height:1.75}
 .recall-btn{display:block;width:100%;padding:1rem;background:transparent;border:none;border-top:.5px solid var(--border);font-size:15px;color:var(--purple);cursor:pointer;text-align:center;font-weight:600;font-family:inherit}
 .recall-btn:hover{background:var(--raised)}
-.palace{background:var(--raised);border-radius:var(--r);padding:1.2rem 1.25rem}
-.palace-label{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--faint);margin-bottom:1rem}
-.palace-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:7px}
-.palace-room{background:var(--surface);border:.5px solid var(--border);border-radius:var(--rm);padding:.85rem .65rem;text-align:center;cursor:pointer;transition:all .15s}
-.palace-room:hover{border-color:var(--purple);background:var(--purple-light)}
-.room-icon{font-size:22px;margin-bottom:5px}
-.room-name{font-size:11px;font-weight:700;color:var(--ink)}
-.room-concept{font-size:10px;color:var(--muted);margin-top:2px}
+.kmap{background:var(--surface);border:.5px solid var(--border);border-radius:var(--r);padding:1.1rem 1.25rem}
+.kmap-label{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--faint);margin-bottom:.85rem}
+.kmap-inner{display:flex;align-items:center;flex-wrap:wrap;gap:5px}
+.kmap-node{padding:5px 13px;border-radius:99px;font-size:12px;font-weight:600;white-space:nowrap}
+.kmap-arrow{font-size:14px;color:var(--faint)}
+.tips-box{background:var(--surface);border:.5px solid var(--border);border-radius:var(--r);padding:1.25rem 1.4rem}
+.tips-list{display:flex;flex-direction:column;gap:14px;margin-top:.75rem}
+.tip-row{display:flex;gap:11px;align-items:flex-start}
+.tip-icon{font-size:20px;flex-shrink:0}
+.tip-name{font-size:13px;font-weight:700;color:var(--ink);margin-bottom:3px}
+.tip-desc{font-size:12px;color:var(--muted);line-height:1.55}
+.aha{border-radius:var(--rm);padding:1.1rem 1.4rem;display:flex;gap:12px;align-items:flex-start}
+.aha-icon{font-size:20px;flex-shrink:0;margin-top:1px}
+.aha-title{font-size:14px;font-weight:700;margin-bottom:3px}
+.aha-body{font-size:13px;line-height:1.65;opacity:.85}
 .feynman{background:var(--surface);border:.5px solid var(--border);border-radius:var(--r);padding:1.35rem 1.5rem;margin-bottom:1.75rem}
 .feynman-label{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--faint);margin-bottom:.5rem}
 .feynman-prompt{font-size:15px;color:var(--muted);margin-bottom:.9rem;line-height:1.7}
@@ -107,8 +141,6 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;co
 .feynman-btn:hover{background:var(--raised)}
 .feynman-feedback{margin-top:.9rem;padding:.9rem 1.1rem;border-radius:var(--rm);font-size:14px;line-height:1.7;display:none}
 .feynman-feedback.shown{display:block}
-.company-chip{display:inline-flex;align-items:center;gap:5px;font-size:12px;padding:4px 12px;border-radius:99px;background:var(--raised);border:.5px solid var(--border);color:var(--muted);margin:0 5px 6px 0}
-.companies{margin-bottom:.5rem}
 .flashcard-wrap{perspective:800px;margin-bottom:.75rem;cursor:pointer;height:120px}
 .flashcard-inner{width:100%;height:100%;position:relative;transform-style:preserve-3d;transition:transform .4s}
 .flashcard-wrap.flipped .flashcard-inner{transform:rotateY(180deg)}
@@ -117,6 +149,27 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;co
 .flashcard-back{transform:rotateY(180deg)}
 .card-side{font-size:11px;text-transform:uppercase;letter-spacing:.07em;color:var(--faint);margin-bottom:.5rem}
 .card-text{font-size:14px;font-weight:600;color:var(--ink);line-height:1.5}
+.cards-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.res-list{display:flex;flex-direction:column;gap:1.25rem;padding-top:1.25rem}
+.res-item{display:flex;gap:14px;align-items:flex-start;padding-bottom:1.25rem;border-bottom:.5px solid var(--border)}
+.res-item:last-child{border-bottom:none;padding-bottom:0}
+.res-icon{width:38px;height:38px;border-radius:var(--rm);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.res-title{font-size:15px;font-weight:700;margin-bottom:4px}
+.res-title a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--border-em)}
+.res-title a:hover{color:var(--purple);border-bottom-color:var(--purple)}
+.res-desc{font-size:13.5px;color:var(--muted);line-height:1.65;margin-bottom:5px}
+.res-badge{display:inline-block;font-size:11px;font-weight:700;padding:3px 10px;border-radius:99px}
+.checklist-hdr{background:var(--raised);border-radius:var(--rm);padding:.85rem 1rem;display:flex;align-items:center;gap:1rem;margin-top:1.25rem;margin-bottom:.75rem}
+.cl-prog-lbl{font-size:13px;font-weight:600;color:var(--muted);white-space:nowrap}
+.cl-prog-wrap{flex:1;height:6px;background:var(--border);border-radius:99px;overflow:hidden}
+.cl-prog-fill{height:100%;border-radius:99px;transition:width .3s;width:0%}
+.cl-sec-hdr{font-size:11px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--faint);padding:.6rem 1rem;background:var(--raised);border:.5px solid var(--border);border-radius:var(--rm);margin:.85rem 0 .4rem}
+.cl-item{display:flex;align-items:flex-start;gap:10px;padding:.65rem 1rem;border:.5px solid var(--border);border-radius:var(--rm);margin-bottom:5px;cursor:pointer;background:var(--surface)}
+.cl-item:hover{background:var(--raised)}
+.cl-item input{margin-top:3px;flex-shrink:0;width:16px;height:16px;cursor:pointer}
+.cl-label{font-size:14px;color:var(--muted);line-height:1.55;flex:1}
+.cl-badge{font-size:10px;font-weight:700;padding:2px 8px;border-radius:99px;border:.5px solid var(--border);color:var(--faint);flex-shrink:0;margin-top:2px;background:var(--raised);white-space:nowrap}
+.cl-done .cl-label{text-decoration:line-through;color:var(--faint)}
 .sec-hdr{display:flex;align-items:center;gap:9px;margin:1.75rem 0 1rem}
 .sec-hdr-icon{width:28px;height:28px;border-radius:var(--rm);display:flex;align-items:center;justify-content:center;flex-shrink:0}
 .sec-hdr-title{font-size:12px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--muted)}
@@ -131,6 +184,10 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;co
   .mod-grid{grid-template-columns:1fr}
   .mod-sidebar{order:2}
   .page{padding:2rem 1.75rem 4rem}
+  .obj-grid{grid-template-columns:1fr}
+  .phase-grid{grid-template-columns:1fr 1fr}
+  .timeline{grid-template-columns:repeat(4,1fr)}
+  .cards-grid{grid-template-columns:1fr}
 }
 @media(max-width:640px){
   body{font-size:16px}
@@ -138,16 +195,15 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;co
   .hero h1{font-size:27px}
   .hero p{font-size:15px}
   .hook-q{font-size:18px}
-  .weeks{grid-template-columns:repeat(4,1fr)}
+  .timeline{grid-template-columns:repeat(4,1fr)}
   .mod-pill{font-size:12px;padding:5px 12px}
   .model-text{font-size:15px}
   .recall-q-text{font-size:15px}
-  .palace-grid{grid-template-columns:1fr 1fr}
+  .phase-grid{grid-template-columns:1fr}
 }
 @media(max-width:400px){
   .hero h1{font-size:23px}
-  .weeks{grid-template-columns:repeat(4,1fr)}
-  .week-dot{height:46px}
+  .timeline{grid-template-columns:repeat(3,1fr)}
 }
 </style>
 </head>
@@ -155,42 +211,667 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;co
 <div class="page">
 
 <div class="hero">
-  <div class="hero-badge"><i class="ti ti-brain" aria-hidden="true"></i> Principal Engineer · 8-Week Path</div>
-  <h1>Principal Engineer Learning Path</h1>
+  <div class="hero-badge"><i class="ti ti-brain" aria-hidden="true"></i> Principal Engineer · 6-Month Path</div>
+  <h1>Not an 8-week sprint.<br>A 6-month practice.</h1>
+  <p>Principal engineering is a game you play at a consistently high level — technically, in influence, and in leadership. This curriculum is built for the long game: 10 modules, 24+ weeks, and ongoing practices that compound over years.</p>
+  <div class="hero-stats">
+    <div class="stat"><div class="stat-num">10</div><div class="stat-lbl">Modules</div></div>
+    <div class="stat"><div class="stat-num">6</div><div class="stat-lbl">Months</div></div>
+    <div class="stat"><div class="stat-num">5</div><div class="stat-lbl">Phases</div></div>
+    <div class="stat"><div class="stat-num">80+</div><div class="stat-lbl">Checklist items</div></div>
+  </div>
 </div>
 
 <div class="prog-wrap"><div class="prog-fill" id="mainProg"></div></div>
-<div class="prog-label" id="progLabel">0 of 6 modules started</div>
+<div class="prog-label" id="progLabel">0 of 10 modules completed</div>
 
-<div class="weeks" id="weekDots"></div>
+<div style="font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--faint);margin-bottom:.75rem">5 Phases — click to jump</div>
+<div class="phase-grid" id="phaseGrid"></div>
+
+<div style="font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--faint);margin-bottom:.75rem;margin-top:1.5rem">24-Week Timeline — click any week to see what to do</div>
+<div class="timeline" id="timeline" style="grid-template-columns:repeat(8,1fr)"></div>
+<div id="timelineWrap"></div>
+
+<div style="margin-top:2rem;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--faint);margin-bottom:.75rem">All 10 modules</div>
 <div class="mod-nav" id="modNav"></div>
 <div id="sections"></div>
 
 </div>
 
 <script>
-const MODULES=[{id:"m1",color:"#534AB7",bg:"#EEEDFE",dark:"#3C3489",cardBg:"#E6F1FB",num:"01",title:"Technical Strategy & Vision",emoji:"🗺️",metaphor:"The lighthouse keeper who decides where the beam points — not who operates the boats.",hook:"Why do some engineers get quoted in planning docs for years after they leave — while others build great systems nobody remembers?",hookSub:"Because strategy outlasts code. Staff engineers who shape direction create leverage that compounds. This module teaches you to be the person who sets the coordinates, not just navigates them.",story:[{who:"🏗️ Architect Alex",text:"Alex's team was debating whether to rebuild the auth service for the 3rd time. Instead of joining the debate, she wrote a 1-page vision. She pre-briefed the two loudest skeptics before the meeting. The discussion took 12 minutes. The decision stuck for 2 years."},{who:"📡 Vision Vera",text:"Vera built her org's first tech radar — nobody asked her to. She presented it to her director as 'the team's shared stance on technical risk.' Her director shared it with the VP. Vera was invited to the platform strategy meeting the following month."}],model:"A technical vision answers in one page: where are we, why is it not enough, and what does great look like in 18 months?",tactics:[{icon:"⚓",name:"Anchor early, adjust later",desc:"Publish a rough draft before it's polished. Your v0.1 shapes v1.0 more than any later revision."},{icon:"🤫",name:"Pre-brief key skeptics",desc:"Turn opponents into allies before the group meeting. The meeting ratifies; 1:1s decide."},{icon:"⚖️",name:"Make inaction a visible choice",desc:"Name 'do nothing' as Option C with its costs. Inertia looks safe until you price it."},{icon:"🗂️",name:"ADRs for reluctant teams",desc:"Architecture Decision Records capture why, not just what. Future-you will thank present-you."}],recall:{q:"What is the one-page test for a technical vision?",a:"If you can't explain where the system is today, why it falls short, and what great looks like in 18 months — on one page — the vision isn't clear yet. Clarity of document follows clarity of thought."},palace:[{icon:"🚪",name:"Front door",concept:"Vision doc"},{icon:"🗓️",name:"Calendar",concept:"6–18 mo horizon"},{icon:"📋",name:"Whiteboard",concept:"RFC"},{icon:"🧭",name:"Compass",concept:"Tech radar"},{icon:"📦",name:"Filing cabinet",concept:"ADRs"},{icon:"🔭",name:"Telescope",concept:"Arch review"}],aha:{title:"The anchor bias works in your favor.",text:"Research shows groups converge toward the first concrete idea they see — even if imperfect. Publishing a rough draft sets the anchor. Waiting until it's 'ready' means someone else does."},companies:["Netflix: engineering blog as vision signal","AWS: working backwards PR/FAQ","Stripe: long-form tech strategy memos","Shopify: RFC culture for platform decisions"],flashcards:[{q:"What is the 6–18 month planning horizon?",a:"Far enough to matter, near enough to act on. Shorter = tactics. Longer = fantasy."},{q:"What makes an RFC effective?",a:"Problem, proposal, alternatives, trade-offs, decision record — and a hard feedback deadline."},{q:"What is a tech radar?",a:"Adopt / Trial / Assess / Hold — shared vocabulary for your org's technical bets."}],feynmanPrompt:'Explain the difference between a technical vision and a roadmap to someone who has never written code.'},{id:"m2",color:"#1D9E75",bg:"#E1F5EE",dark:"#085041",cardBg:"#E1F5EE",num:"02",title:"Influence & Alignment",emoji:"🕸️",metaphor:"A chess player who knows every piece's incentives — not just their own.",hook:"Why does the quietest person in the room sometimes win every decision?",hookSub:"Because influence isn't volume — it's preparation. Staff engineers who master alignment land decisions without fighting for them. This module teaches you to work the room before entering it.",story:[{who:"🎭 Diplomat Dana",text:"Dana needed sign-off from three VPs on a migration plan. She had 15-min 1:1s with each VP the week before — asking about their concerns, adjusting the plan. The group meeting lasted 8 minutes. Two VPs called it the smoothest decision of the quarter."},{who:"🏦 Relationship Raj",text:"Raj spent 6 months helping other teams with small asks before his platform migration. When he needed cross-team resources, nobody said no. 'He's already helped us twice this quarter.' Relationship deposits compound like interest."}],model:"Influence without authority = stakeholder mapping + relationship capital + written alignment + the pre-brief.",tactics:[{icon:"3️⃣",name:"The 3-meeting rule",desc:"1:1 pre-briefs → written alignment summary → group ratification. Never land decisions cold."},{icon:"🏦",name:"Deposit before withdraw",desc:"Help stakeholders with their priorities before you need anything. Relationship debt is real debt."},{icon:"🎯",name:"Name the tension",desc:"When teams conflict, name it explicitly. The person who names the problem shapes the solution."},{icon:"👁️",name:"Strategic visibility",desc:"Proactive weekly updates build reputation without self-promotion. Work nobody sees doesn't count."}],recall:{q:"What is the single most common mistake engineers make when trying to land a major decision?",a:"Presenting it cold in a group meeting. Surprises in group settings create defensiveness. The real work happens in 1:1 pre-briefs. The group meeting should feel like ratification, not discovery."},palace:[{icon:"🗺️",name:"Map room",concept:"Power mapping"},{icon:"🤝",name:"Handshake",concept:"Relationship bank"},{icon:"📨",name:"Outbox",concept:"Pre-brief"},{icon:"⚖️",name:"Balance",concept:"Naming tension"},{icon:"📣",name:"Megaphone",concept:"Visibility"},{icon:"🔀",name:"Junction",concept:"Disagree & commit"}],aha:{title:"'Disagree and commit' is more powerful than silent compliance.",text:"When you say 'I disagree, and I'm fully committed to making this work' — on record — you preserve credibility, demonstrate maturity, AND create an honest trail if the decision needs revisiting."},companies:["Amazon: disagree & commit as explicit value","Apple: pre-briefing before review meetings","Google: doc-based decision culture","Meta: executive-aligned landing strategy"],flashcards:[{q:"What does the 3-meeting rule mean?",a:"1:1 pre-briefs → written alignment summary → group meeting as ratification only."},{q:"What is 'deposit before withdraw'?",a:"Help stakeholders with their priorities before asking anything of them. Build trust in advance, not during a crisis."},{q:"How do you handle a decision that went against you?",a:"Say explicitly: 'I disagree, and I'm fully committed to making this work.' Don't silently comply — it costs credibility either way."}],feynmanPrompt:'Explain why a staff engineer needs to understand org dynamics as well as distributed systems.'},{id:"m3",color:"#BA7517",bg:"#FAEEDA",dark:"#633806",cardBg:"#FAEEDA",num:"03",title:"Communication",emoji:"📡",metaphor:"A translator who speaks fluent VP and fluent engineer — and never confuses the two audiences.",hook:"Your VP has 90 seconds of attention. What do you say first?",hookSub:"The Pyramid Principle: answer first, then support. Most engineers explain the context, constraints, options — and then the conclusion. By then, the VP has checked their phone. This module fixes that.",story:[{who:"📢 Briefing Betty",text:"Betty opened a 5-minute VP slot with: 'We need to delay launch 2 weeks to prevent a data issue affecting 30% of users.' Her VP said 'approved' in 4 minutes. The engineer before her took 12 minutes and got asked to 'send a follow-up doc.'"},{who:"📝 Doc Dave",text:"Dave rewrote his design doc after a junior engineer had 8 questions. He put every answer in the doc itself. v2 had 1 question. v3 had none. The system shipped with zero kickoff meetings."}],model:"Lead with the conclusion. Support with structure. Save the evidence for those who ask.",tactics:[{icon:"⛰️",name:"Lead with the so-what",desc:"Open every briefing with the conclusion first. Never make the listener wait for the point."},{icon:"✍️",name:"Written > verbal for alignment",desc:"After every important discussion, send a written summary. Verbal alignment evaporates in 48 hours."},{icon:"🎖️",name:"Give credit loudly",desc:"Name engineers in leadership updates. Lifting others builds more trust than self-promotion."},{icon:"🎓",name:"Coach, don't tell",desc:"In mentorship: ask questions only. The answer they find sticks far longer than the one you give."}],recall:{q:"What is the Pyramid Principle, and why do engineers naturally violate it?",a:"Answer first, then structure and evidence. Engineers naturally explain the reasoning that led to their conclusion — because that's how they think. But listeners want the conclusion first, then supporting detail if they care."},palace:[{icon:"🏔️",name:"Pyramid",concept:"Answer first"},{icon:"🎯",name:"Target",concept:"Exec brief"},{icon:"📐",name:"Blueprint",concept:"Design doc"},{icon:"🗣️",name:"Microphone",concept:"SBI feedback"},{icon:"🌱",name:"Plant",concept:"Coaching 1:1"},{icon:"🏅",name:"Medal",concept:"Public credit"}],aha:{title:"Written summaries are political protection.",text:"When you send a written summary after an important conversation, you protect all parties. People who 'remember' decisions differently later have no argument against a contemporaneous written record."},companies:["McKinsey: Pyramid Principle as core framework","Amazon: 6-pager instead of slides","Google: design doc culture","Stripe: long-form written culture"],flashcards:[{q:"What is the Pyramid Principle?",a:"Lead with the conclusion (answer), then structure, then evidence. Not the reverse."},{q:"What's the test for a good design doc?",a:"A new hire can implement it with fewer than 2 clarifying questions."},{q:"Why is the coaching 1:1 rule 'questions only'?",a:"The answer the learner finds themselves sticks far longer than one given to them."}],feynmanPrompt:'Explain to a 10-year-old why it matters how you start a sentence when talking to someone very busy.'},{id:"m4",color:"#D85A30",bg:"#FAECE7",dark:"#712B13",cardBg:"#FAECE7",num:"04",title:"Cross-Team Execution",emoji:"⚙️",metaphor:"A project manager who never loses sight of the dependency map — because they drew it themselves.",hook:"Why do projects slip at the exact moment everyone thought they were on track?",hookSub:"Because the blockers were always there — just invisible. This module teaches you to see around corners: map dependencies before kickoff, pre-mortem failure before it happens, escalate with a recommendation before anyone asks.",story:[{who:"🔍 Detective Dev",text:"Dev did a dependency audit on a project that slipped 3 months. He found 11 dependencies — 7 weren't visible at kickoff. 'The signal was there,' he wrote. 'We just weren't looking.' He now starts every project: 'What will block us that we haven't named yet?'"},{who:"⚠️ Escalator Emma",text:"Emma sent her manager: 'At our pace we'll miss Q3. Option A: cut scope. Option B: add capacity. I recommend A.' Her manager called it 'the most useful message I got all week.' A similar PM surfaced the same problem with no options. Very different conversation."}],model:"Every project delay was predictable. The question is whether you built the system to see it coming.",tactics:[{icon:"📡",name:"Set update cadence first",desc:"Establish the status rhythm before anyone asks for it. Absence of cadence fills with rumor."},{icon:"📰",name:"Press release first",desc:"Before scoping, write the announcement for launch day. Fuzzy goals can't produce clear prose."},{icon:"🚨",name:"Escalate with a recommendation",desc:"'Problem + 2 options + my recommendation' keeps you in the driver's seat."},{icon:"🔬",name:"Pre-mortem everything",desc:"Assume failure before it happens. Top 3 risks get owners, mitigations, and escalation triggers."}],recall:{q:"What does a good escalation message look like?",a:"'We have a problem. Here are two options with trade-offs. I recommend option A because [reason]. What do you need from me to approve this?' Never just: 'We have a problem.'"},palace:[{icon:"🕸️",name:"Dep web",concept:"Dependency map"},{icon:"💀",name:"Skull",concept:"Pre-mortem"},{icon:"📊",name:"Status board",concept:"Update cadence"},{icon:"🗞️",name:"Newspaper",concept:"Press release first"},{icon:"🚀",name:"Launch pad",concept:"Kickoff checklist"},{icon:"📞",name:"Hotline",concept:"Early escalation"}],aha:{title:"The pre-mortem is the most underused technique in engineering.",text:"Teams that imagine the project has already failed — before starting — surface 30% more risks than those who do standard risk reviews. The 'it failed' framing removes optimism bias."},companies:["Amazon: working backwards + PR/FAQ","Google: OKR + weekly status","Netflix: chaos engineering as pre-mortem","Etsy: blameless post-mortems"],flashcards:[{q:"What is the pre-mortem technique?",a:"Assume the project already failed. Ask: 'What happened?' List causes. Score by likelihood × impact. Top 3 get mitigation plans."},{q:"When should you escalate?",a:"Before it's urgent — with a recommendation. Early + options + recommendation = trust. Late + problem only = fire drill."},{q:"What is 'press release first'?",a:"Before scoping, write the announcement for launch day. If you can't write it, the goals aren't clear yet."}],feynmanPrompt:'Explain to a new engineer why writing down what could go wrong before a project starts actually helps the project succeed.'},{id:"m5",color:"#3B6D11",bg:"#EAF3DE",dark:"#27500A",cardBg:"#EAF3DE",num:"05",title:"Leadership Tactics",emoji:"🧭",metaphor:"A conductor who knows every instrument's range — and when to let silence do the work.",hook:"What separates the staff engineer everyone wants in the room from the one who gives great answers but nobody thinks to invite?",hookSub:"Presence — not personality, but process. Meetings they run produce decisions. Feedback they give changes behavior. Their team feels protected. These are learnable mechanics, not innate traits.",story:[{who:"🎯 DRI Dmitri",text:"Dmitri started putting one name at the top of every meeting invite: 'Decision owner: [name].' His standups went from 22 minutes to 11 minutes in 3 weeks. 'When you know who decides, you know what your job is.'"},{who:"💌 Update Uma",text:"Uma sent her manager 3 bullets every Friday: top progress, top risk, one ask. After 6 weeks her manager stopped asking 'how's the project going?' in 1:1s. They started talking about the future instead. 'She's the most reliable person on my team.'"}],model:"Leadership without authority = clear decision owners + reliable information flow + behavioral feedback + protected maker time.",tactics:[{icon:"👑",name:"Every meeting needs a DRI",desc:"One person makes the call if consensus fails. Name them in the invite. It changes everything."},{icon:"📬",name:"Top 3 weekly update",desc:"Progress + risk + one ask. Every Friday. Your manager stops worrying; you start leading."},{icon:"🎯",name:"SBI, not sandwich",desc:"Situation + Behavior + Impact. The 'good-bad-good' structure dilutes the message."},{icon:"🛡️",name:"Protect maker time",desc:"Every interrupted hour costs 23 min of recovery. Advocate for meeting-free blocks for the whole team."},{icon:"🔥",name:"Spot burnout early",desc:"Cynicism in language. Shorter reviews. Missed optional meetings. Ask before it's a resignation."},{icon:"↩️",name:"Decline with counter-offer",desc:"'No, but here's what I can do' is leadership. A flat no is just a boundary."}],recall:{q:"What is the SBI feedback model, and why is the 'sandwich' a trap?",a:"Situation + Behavior + Impact. The feedback sandwich (good-bad-good) dilutes the critical message — recipients remember the praise and discount the middle. SBI is precise and ends with a question: 'What was your perspective on how that went?'"},palace:[{icon:"👑",name:"Throne",concept:"DRI"},{icon:"📮",name:"Mailbox",concept:"Weekly update"},{icon:"🎯",name:"Bullseye",concept:"SBI feedback"},{icon:"⏰",name:"Clock",concept:"Maker time"},{icon:"🌡️",name:"Thermometer",concept:"Burnout signal"},{icon:"↩️",name:"Boomerang",concept:"Counter-offer"}],aha:{title:"Interruptions cost more than you think — by 23 minutes.",text:"A UC Irvine study found it takes 23 min 15 sec to fully return to a task after an interruption. One notification mid-flow doesn't cost 10 seconds — it costs the rest of that focused session."},companies:["Amazon: DRI culture","Apple: single-threaded ownership","Netflix: keeper test","GitLab: async-first meeting culture"],flashcards:[{q:"What is DRI and why does naming one matter?",a:"Directly Responsible Individual. Without one, meetings drift. Naming a DRI changes how people prepare and how decisions land."},{q:"What is the 3-bullet Friday update?",a:"Top progress. Top risk. One thing you need from your manager. Keeps them informed without a meeting."},{q:"What are early burnout signals in high performers?",a:"Cynicism in language. Declining PR quality. Shorter code review responses. Missed optional meetings. Act at the first signal."}],feynmanPrompt:'Explain to a new engineer why naming one decision-maker before a meeting makes the meeting shorter and the decision stickier.'},{id:"m6",color:"#378ADD",bg:"#E6F1FB",dark:"#0C447C",cardBg:"#E6F1FB",num:"06",title:"Identity & Growth",emoji:"🌱",metaphor:"A sculptor who knows exactly which part of the marble still needs work — because they wrote it down last week.",hook:"Why do some staff engineers plateau at senior while others compound into principal — with the same technical skills?",hookSub:"Because identity is a skill. Knowing your archetype, telling your career story with specificity, sponsoring others with your credibility — these are learnable moves that separate a long career from a great one.",story:[{who:"🌟 Archetype Anika",text:"Anika spent 3 years being 'the best engineer in the room.' Then she wrote her readme. Section 3: 'What I'm working on as a leader: shaping technical direction at org level.' Her manager read it. Two weeks later she was invited to the platform strategy meeting. The readme was her application."},{who:"🎖️ Sponsor Sol",text:"Sol never told his mentees what to do. Instead, he said their names when headcount was being planned. 'Maya would be great for that platform role.' Maya got the role. She didn't know Sol had spoken up until 6 months later. 'That's sponsorship,' Sol said. 'Mentorship is in the room with you. Sponsorship is in the rooms you're not in.'"}],model:"Sponsoring = using your earned trust to open doors for others. Mentoring = giving advice. Only one of them scales.",tactics:[{icon:"🎯",name:"Be known for one thing first",desc:"Pick one domain and go deep. Reputation is built by repetition. It expands naturally from a specific base."},{icon:"🚪",name:"Sponsor publicly, mentor privately",desc:"Say names in the rooms they're not in. Attribute ideas. Recommend them for stretch roles."},{icon:"📝",name:"'Don't promote me yet' list",desc:"Honest inventory of gaps to close. Engineers who know what they're missing develop faster."},{icon:"⏱️",name:"Time allocation audit",desc:"Most staff engineers spend 60%+ on IC work. Track one week honestly. The gap is the insight."}],recall:{q:"What is the difference between sponsoring and mentoring?",a:"Mentoring happens in 1:1s — advice, coaching, support. Sponsoring happens in the rooms your mentee isn't in — saying their name, attributing ideas, recommending them for opportunities. Sponsorship uses your credibility on someone else's behalf."},palace:[{icon:"🪞",name:"Mirror",concept:"Self-archetype"},{icon:"📖",name:"Readme",concept:"Operating manual"},{icon:"🎤",name:"Stage",concept:"Career narrative"},{icon:"🚪",name:"Door",concept:"Sponsorship"},{icon:"⏱️",name:"Timer",concept:"Time audit"},{icon:"📋",name:"List",concept:"Gap inventory"}],aha:{title:"The time audit is the most uncomfortable exercise here.",text:"Most staff engineers believe they spend ~40% on strategy and influence. The average actual number, tracked honestly for one week, is closer to 10–15%. The gap between perceived and actual leverage is where career growth lives."},companies:["Microsoft: growth mindset culture","Google: staff+ archetype frameworks","Stripe: internal readme culture","Netflix: explicit sponsorship norms"],flashcards:[{q:"What are the four staff engineer archetypes?",a:"Tech Lead, Architect, Solver, Right Hand. Each creates leverage differently. Knowing yours shapes how you invest your time."},{q:"What is a staff engineer readme?",a:"A personal operating manual: how you work, what you value, what you're developing as a leader, and what helps you do your best work."},{q:"What is the 'don't promote me yet' list?",a:"A private, honest inventory of specific gaps between where you are now and where the next level requires."}],feynmanPrompt:"Explain what it means to 'sponsor' someone at work to a person who has only heard the word in the context of sports jerseys."}];
+const MODULES=[
+{
+  id:"m1",color:"#534AB7",bg:"#EEEDFE",dark:"#3C3489",num:"01",phase:"Foundation",
+  title:"Technical Strategy & Vision",
+  emoji:"🗺️",
+  metaphor:"The lighthouse keeper who decides where the beam points — not who operates the boats.",
+  hook:"Why do some engineers get quoted in planning docs years after they leave — while others build great systems nobody remembers?",
+  hookSub:"Because strategy outlasts code. Principal engineers shape direction that compounds over years. This module teaches you to look 18 months ahead, build a technical vision others can navigate by, and author the RFCs that turn debate into alignment.",
+  story:[
+    {who:"🏗️ Architect Alex",text:"Alex's team had been debating the auth service rebuild for the third time in two years. Instead of joining the debate, she wrote a 1-page vision and pre-briefed the two loudest skeptics before the meeting. The discussion took 12 minutes. The decision held for 2 years. Her vision became the onboarding doc for every new engineer."},
+    {who:"📡 Vision Vera",text:"Vera built her org's first tech radar — nobody asked her to. She presented it as 'the team's shared stance on technical risk.' Her director forwarded it to the VP. Vera was invited to the platform strategy meeting the following month. Visibility came from substance, not self-promotion."}
+  ],
+  model:"A technical vision answers in one page: where are we, why is it not enough, and what does great look like in 12–18 months?",
+  tactics:[
+    {icon:"⚓",name:"Anchor early, adjust later",desc:"Publish a rough draft before it's polished. Your v0.1 shapes v1.0 more than any later revision. Waiting until it's 'ready' means someone else sets the anchor."},
+    {icon:"🤫",name:"Pre-brief key skeptics",desc:"Turn opponents into allies before the group meeting. The meeting ratifies; 1:1s decide. Surprises in group settings create defensiveness that's hard to undo."},
+    {icon:"⚖️",name:"Make inaction a visible choice",desc:"Name 'do nothing' as Option C with its costs. Inertia looks safe until you price it out. Leaders who see the cost of inaction are more likely to move."},
+    {icon:"🗂️",name:"ADRs for reluctant teams",desc:"Architecture Decision Records capture the why, not just the what. Future-you, future teammates, and future incidents will all thank present-you."}
+  ],
+  recall:{q:"What is the one-page test for a technical vision?",a:"If you can't explain where the system is today, why it falls short, and what great looks like in 18 months — all on one page — the vision isn't clear yet. Clarity of document follows clarity of thought. The constraint is the exercise."},
+  aha:{title:"The anchor bias works in your favor.",text:"Research shows groups converge toward the first concrete idea they encounter — even if imperfect. Publishing a rough draft sets the anchor. Waiting until it's 'ready' means someone else does."},
+  objectives:["Write a compelling 1-page technical vision that engineers quote and leaders rally behind","Author RFCs that move decisions from Slack debate to signed-off alignment","Facilitate architecture reviews as a thought partner, not just a gatekeeper","Build and present a tech radar that gives your org shared vocabulary for technical risk","Structure build vs. buy decisions with enough rigor to survive VP scrutiny","Write Architecture Decision Records that explain the why, not just the what"],
+  resources:[
+    {icon:"📗",title:"Staff Engineer — Will Larson",url:"",desc:"The Tech Lead and Architect chapters show what technical vision and strategy look like in practice. Read these first, before Week 1 exercises.",badge:"Core reading",badgeBg:"var(--purple-light)",badgeColor:"var(--purple-dark)"},
+    {icon:"📗",title:"The Architect Elevator — Gregor Hohpe",url:"",desc:"How architects move between the technical engine room and the executive boardroom without losing precision in either direction.",badge:"Core reading",badgeBg:"var(--purple-light)",badgeColor:"var(--purple-dark)"},
+    {icon:"🔗",title:"Thoughtworks Technology Radar",url:"https://www.thoughtworks.com/radar",desc:"The live quarterly radar is the industry model for categorizing technical bets. Study a few editions before running your own.",badge:"Free online",badgeBg:"var(--teal-light)",badgeColor:"var(--teal-dark)"},
+    {icon:"🔗",title:"IETF RFC 2119 — Key Words for RFCs",url:"https://www.rfc-editor.org/rfc/rfc2119",desc:"A 2-page read that permanently improves your technical writing. MUST vs. SHOULD vs. MAY prevents entire categories of ambiguity.",badge:"Free online",badgeBg:"var(--teal-light)",badgeColor:"var(--teal-dark)"},
+    {icon:"🔗",title:"staffeng.com — Staff+ Stories",url:"https://staffeng.com",desc:"Read 3+ interviews filtered to 'tech lead' or 'architect.' Pay attention to how each engineer describes shaping direction.",badge:"Free online",badgeBg:"var(--teal-light)",badgeColor:"var(--teal-dark)"}
+  ],
+  checklist:[
+    {title:"Exercises",items:[
+      {label:"Wrote a 1-page technical vision for a domain I own and shared it before it felt ready",type:"Exercise"},
+      {label:"Wrote a real RFC on a pending decision, pre-briefed top skeptic, sent with a hard feedback deadline",type:"Exercise"},
+      {label:"Built a tech radar for my stack, facilitated a team review, and presented to leadership",type:"Exercise"},
+      {label:"Completed a build-vs-buy analysis and wrote a recommendation memo for my EM",type:"Exercise"}
+    ]},
+    {title:"Management Tips Practiced",items:[
+      {label:"Used 'anchor early' — published a rough draft before it was polished",type:"Tip"},
+      {label:"Pre-briefed key skeptics 1:1 before a group meeting",type:"Tip"},
+      {label:"Named 'do nothing' as Option C with its costs in a proposal",type:"Tip"}
+    ]},
+    {title:"Objectives — I can now…",items:[
+      {label:"Write a technical vision that engineers quote and leaders rally behind",type:"Objective"},
+      {label:"Author RFCs that move decisions from debate to signed-off alignment",type:"Objective"},
+      {label:"Build a tech radar that gives my org shared vocabulary for risk",type:"Objective"}
+    ]}
+  ],
+  flashcards:[
+    {q:"What is the 6–18 month planning horizon?",a:"Far enough to matter, near enough to act on. Shorter = tactics. Longer = fantasy."},
+    {q:"What makes an RFC effective?",a:"Problem, proposal, alternatives, trade-offs, decision record — and a hard feedback deadline."},
+    {q:"What is a tech radar?",a:"Adopt / Trial / Assess / Hold — shared vocabulary for your org's technical bets."},
+    {q:"What is an ADR?",a:"Architecture Decision Record — documents what was decided and why, including what was not chosen."}
+  ],
+  feynmanPrompt:"Explain the difference between a technical vision and a roadmap to someone who has never written code."
+},
+{
+  id:"m2",color:"#1D9E75",bg:"#E1F5EE",dark:"#085041",num:"02",phase:"Foundation",
+  title:"Influence & Organizational Alignment",
+  emoji:"🕸️",
+  metaphor:"A chess player who knows every piece's incentives — not just their own.",
+  hook:"Why does the quietest person in the room sometimes win every decision?",
+  hookSub:"Because influence isn't volume — it's preparation and relationship capital. Principal engineers who master alignment land decisions without fighting for them. This module teaches you to work the room before entering it, build trust across org boundaries, and navigate competing agendas without picking sides.",
+  story:[
+    {who:"🎭 Diplomat Dana",text:"Dana needed sign-off from three VPs on a migration plan. Instead of a big meeting, she had 15-min 1:1s with each VP the week before — asking about their concerns, adjusting the plan accordingly. The group meeting lasted 8 minutes. Two VPs later said it was the smoothest decision of the quarter."},
+    {who:"🏦 Relationship Raj",text:"Raj spent 6 months helping other teams with small asks before his platform migration. When he needed cross-team resources, nobody said no. 'He's already helped us twice this quarter.' Relationship deposits compound like interest. He'd made deposits before he needed withdrawals."}
+  ],
+  model:"Influence without authority = stakeholder mapping + relationship capital built in advance + written alignment + the pre-brief.",
+  tactics:[
+    {icon:"3️⃣",name:"The 3-meeting rule",desc:"1:1 pre-briefs → written alignment summary → group ratification. Never try to land decisions cold."},
+    {icon:"🏦",name:"Deposit before withdraw",desc:"Help stakeholders with their priorities before you need anything. Relationship debt is as real as technical debt."},
+    {icon:"🎯",name:"Name the tension, own the neutrality",desc:"When teams conflict, name it explicitly. The person who names the problem clearly usually gets to shape the solution."},
+    {icon:"👁️",name:"Strategic visibility",desc:"Monthly async updates to your manager and skip-level build reputation without self-promotion. Work nobody sees doesn't count."},
+    {icon:"🔀",name:"Disagree and commit — publicly",desc:"'I disagree, and I'm fully committed to making this work' preserves credibility and creates an honest paper trail."},
+    {icon:"👂",name:"Hear the worry beneath the question",desc:"'Is this scalable?' often means 'Will this embarrass us in 18 months?' Address the underlying worry, not the surface question."}
+  ],
+  recall:{q:"What is the single most common mistake engineers make when trying to land a major decision?",a:"Presenting it cold in a group meeting. Surprises in group settings create defensiveness. The real work happens in 1:1 pre-briefs. The group meeting should feel like ratification, not discovery — by the time you walk in, the decision should already be made."},
+  aha:{title:"'Disagree and commit' is more powerful than silent compliance.",text:"When you say 'I disagree, and I'm fully committed' — on record — you preserve credibility, demonstrate maturity, AND create an honest trail if the decision needs revisiting. Silent compliance gives you none of those."},
+  objectives:["Map the real influence network — not the org chart, the actual decision network","Build strategic alliances before you need them, not during a crisis","Navigate competing team agendas without losing credibility or integrity","Handle visible disagreement with senior leaders gracefully","Understand executive decision styles and adapt your pitch accordingly","Build and maintain a proactive visibility habit without self-promotion"],
+  resources:[
+    {icon:"📗",title:"The Staff Eng Path — Tanya Reilly",url:"",desc:"The influence chapters are the most realistic treatment of how principal engineers operate without authority. Read before Week 3.",badge:"Core reading",badgeBg:"var(--teal-light)",badgeColor:"var(--teal-dark)"},
+    {icon:"📗",title:"Never Split the Difference — Chris Voss",url:"",desc:"Tactical empathy, mirroring, and labeling from a former FBI hostage negotiator. Translates directly to stakeholder negotiations.",badge:"Core reading",badgeBg:"var(--teal-light)",badgeColor:"var(--teal-dark)"},
+    {icon:"📗",title:"Influence — Robert Cialdini",url:"",desc:"The science of persuasion. Reciprocity, authority, and social proof are the most applicable levers in engineering orgs.",badge:"Core reading",badgeBg:"var(--teal-light)",badgeColor:"var(--teal-dark)"},
+    {icon:"🔗",title:"Lara Hogan's Blog — Resilient Management",url:"https://larahogan.me/blog/",desc:"The BICEPS framework for understanding what stakeholders actually care about beneath their surface objections.",badge:"Free online",badgeBg:"var(--teal-light)",badgeColor:"var(--teal-dark)"},
+    {icon:"🔗",title:"Charity Majors' Blog",url:"https://charity.wtf",desc:"Candid writing on engineering leadership and org dynamics. High signal-to-noise ratio.",badge:"Free online",badgeBg:"var(--teal-light)",badgeColor:"var(--teal-dark)"}
+  ],
+  checklist:[
+    {title:"Exercises",items:[
+      {label:"Mapped the real influence network — formal authority, informal influence, veto power — for a current initiative",type:"Exercise"},
+      {label:"Rewrote a decision doc to pre-answer the top 3 stakeholder objections before anyone raised them",type:"Exercise"},
+      {label:"Navigated a real cross-team conflict: named it, facilitated it, sent a written resolution within 24 hours",type:"Exercise"}
+    ]},
+    {title:"Management Tips Practiced",items:[
+      {label:"Used the 3-meeting rule on a high-stakes decision",type:"Tip"},
+      {label:"Made a concrete deposit with a gap stakeholder before making any ask",type:"Tip"},
+      {label:"Established a strategic visibility habit: proactive updates to manager without being asked",type:"Tip"},
+      {label:"Used 'disagree and commit' publicly after a decision went against my recommendation",type:"Tip"}
+    ]},
+    {title:"Objectives — I can now…",items:[
+      {label:"Map formal authority vs. informal influence vs. veto power in any org context",type:"Objective"},
+      {label:"Navigate competing team priorities and land decisions without alienating either side",type:"Objective"},
+      {label:"Build strategic alliances proactively — before I need them",type:"Objective"}
+    ]}
+  ],
+  flashcards:[
+    {q:"What does the 3-meeting rule mean?",a:"1:1 pre-briefs → written alignment summary → group meeting as ratification only. Never land decisions cold."},
+    {q:"What is 'deposit before withdraw'?",a:"Help stakeholders with their priorities before asking anything. Build trust in advance, not during a crisis."},
+    {q:"How do you handle a decision that went against you?",a:"Say explicitly: 'I disagree, and I'm fully committed to making this work.' Don't silently comply — it costs credibility either way."},
+    {q:"What is the BICEPS framework?",a:"Belonging, Improvement, Choice, Equality, Predictability, Significance — the core needs driving stakeholder behavior."}
+  ],
+  feynmanPrompt:"Explain why a principal engineer needs to understand org dynamics as well as distributed systems."
+},
+{
+  id:"m3",color:"#BA7517",bg:"#FAEEDA",dark:"#633806",num:"03",phase:"Foundation",
+  title:"Communication at Every Altitude",
+  emoji:"📡",
+  metaphor:"A translator who speaks fluent VP and fluent engineer — and never confuses the two audiences.",
+  hook:"Your VP has 90 seconds of attention. What do you say first?",
+  hookSub:"The Pyramid Principle says: answer first, then support. Most engineers explain the context, constraints, options — and then the conclusion. By then, the VP has checked their phone. This module teaches you to write docs that get read, brief executives without losing the plot, and give feedback that actually changes behavior.",
+  story:[
+    {who:"📢 Briefing Betty",text:"Betty opened a 5-minute VP slot with: 'We need to delay launch 2 weeks to prevent a data issue affecting 30% of users. I have two options.' The VP said 'approved on Option B' in 4 minutes. The engineer before her took 12 minutes explaining architecture history and got asked to 'send a follow-up doc.'"},
+    {who:"📝 Doc Dave",text:"Dave rewrote his design doc after a junior engineer said 'I have 8 questions before I can start.' He put every answer in the doc itself. v2 had 1 question. v3 had none. The system shipped with zero kickoff meetings. He saved the team 6 hours of meetings by spending 2 extra hours writing."}
+  ],
+  model:"Lead with the conclusion. Support with structure. Save the evidence for those who ask. Audience changes; this principle never does.",
+  tactics:[
+    {icon:"⛰️",name:"Lead with the so-what",desc:"Open every executive briefing with the conclusion first. Never make the listener wait for the point — the point IS the opening."},
+    {icon:"✍️",name:"Written > verbal for alignment",desc:"After every significant discussion, send a written summary with decisions and owners. Verbal alignment evaporates in 48 hours."},
+    {icon:"🎖️",name:"Give credit loudly and often",desc:"Name engineers in leadership updates. Lifting others builds more trust than self-promotion and costs you nothing."},
+    {icon:"🎓",name:"Coach, don't tell",desc:"In mentorship: ask questions only. The answer they find sticks far longer than the one you give."}
+  ],
+  recall:{q:"What is the Pyramid Principle, and why do engineers naturally violate it?",a:"Answer first, then structure and evidence. Engineers naturally explain the reasoning that led to their conclusion — because that's how they think. But listeners want the conclusion first, then supporting detail if they care. The mismatch causes most 'too much detail' feedback engineers get from leadership."},
+  aha:{title:"Written summaries are protection for everyone.",text:"When you send a written summary after an important conversation, you protect all parties. People who 'remember' decisions differently later have no argument against a contemporaneous written record. It's not bureaucracy — it's political protection."},
+  objectives:["Brief any executive in 5 minutes or less with no jargon and a clear ask","Write design docs that junior engineers can execute without asking you questions","Give SBI feedback that is specific, behavioral, and actually changes how people work","Mentor ICs through growth conversations — asking questions, not dispensing answers","Write async project updates that build trust and surface risks before they escalate","Adapt your communication style to IC, PM, EM, VP, and C-suite audiences"],
+  resources:[
+    {icon:"📗",title:"The Pyramid Principle — Barbara Minto",url:"",desc:"Answer first, structure second, evidence third. This changes every document you write and every briefing you give — permanently.",badge:"Core reading",badgeBg:"var(--amber-light)",badgeColor:"var(--amber-dark)"},
+    {icon:"📗",title:"Radical Candor — Kim Scott",url:"",desc:"Care Personally × Challenge Directly. The 'ruinous empathy' chapter is essential for staff engineers who hold back real observations.",badge:"Core reading",badgeBg:"var(--amber-light)",badgeColor:"var(--amber-dark)"},
+    {icon:"🔗",title:"Design Docs at Google (Industrial Empathy)",url:"https://www.industrialempathy.com/posts/design-docs-at-google/",desc:"The most referenced post on design doc practices. What goes in, what doesn't, and how to make them useful not bureaucratic.",badge:"Free online",badgeBg:"var(--teal-light)",badgeColor:"var(--teal-dark)"}
+  ],
+  checklist:[
+    {title:"Exercises",items:[
+      {label:"Recorded and self-critiqued a 3-minute exec brief — eliminated all jargon, re-recorded after revision",type:"Exercise"},
+      {label:"Wrote a design doc that a new hire could execute with fewer than 2 clarifying questions",type:"Exercise"},
+      {label:"Ran a coaching-only mentorship 1:1: questions only, zero advice, sent a written follow-up",type:"Exercise"},
+      {label:"Gave SBI feedback on a real behavioral issue and followed up on the impact",type:"Exercise"}
+    ]},
+    {title:"Management Tips Practiced",items:[
+      {label:"Led with the 'so-what' — opened every exec-facing message with the conclusion, not context",type:"Tip"},
+      {label:"Sent written summaries after verbal alignment conversations (at least 3 times)",type:"Tip"},
+      {label:"Gave public credit to at least two engineers in leadership-visible channels",type:"Tip"}
+    ]},
+    {title:"Objectives — I can now…",items:[
+      {label:"Brief any executive in 5 minutes with no jargon and a clear ask",type:"Objective"},
+      {label:"Write design docs that junior engineers can execute independently",type:"Objective"},
+      {label:"Mentor ICs through growth conversations — not answer-dispensing",type:"Objective"}
+    ]}
+  ],
+  flashcards:[
+    {q:"What is the Pyramid Principle?",a:"Lead with the conclusion (answer), then structure, then evidence. Not the reverse."},
+    {q:"What's the test for a good design doc?",a:"A new hire can implement it with fewer than 2 clarifying questions."},
+    {q:"What is the SBI feedback model?",a:"Situation + Behavior + Impact. Ends with a question: 'What was your perspective on how that went?'"},
+    {q:"Why is written alignment better than verbal?",a:"Verbal alignment evaporates in 48 hours. Written summaries protect all parties and prevent 'that's not what I said.'"}
+  ],
+  feynmanPrompt:"Explain to a 10-year-old why it matters how you start a sentence when talking to someone very busy."
+},
+{
+  id:"m4",color:"#D85A30",bg:"#FAECE7",dark:"#712B13",num:"04",phase:"Execution",
+  title:"Cross-Team Execution & Delivery",
+  emoji:"⚙️",
+  metaphor:"A project manager who never loses sight of the dependency map — because they drew it themselves.",
+  hook:"Why do projects slip at the exact moment everyone thought they were on track?",
+  hookSub:"Because the blockers were always there — just invisible. This module teaches you to see around corners: map dependencies before kickoff, pre-mortem failure before it happens, escalate with a recommendation before anyone asks. Cross-team execution is where principal engineers create their most visible leverage.",
+  story:[
+    {who:"🔍 Detective Dev",text:"Dev did a dependency audit on a project that slipped 3 months. He found 11 dependencies — 7 weren't visible at kickoff. 'The signal was there,' he wrote in his retro. 'We just weren't looking.' He now starts every project with a 30-min dependency mapping session before the kickoff meeting even happens."},
+    {who:"⚠️ Escalator Emma",text:"Emma sent her manager: 'At our pace we'll miss Q3. Option A: cut scope (detailed list). Option B: add 1 contractor for 6 weeks (cost). I recommend A because scope cut affects 12% of users vs. 100% missing the date.' Her manager called it 'the most useful message I got all week.' A peer surfaced the same risk with just 'we have a problem.' Very different conversation."}
+  ],
+  model:"Every project delay was predictable. The question is whether you built the system to see it coming — dependencies mapped, risks pre-mortemed, escalations prepared.",
+  tactics:[
+    {icon:"📡",name:"Set update cadence first",desc:"Establish the status update rhythm at project start, before anyone asks. Absence of cadence fills with rumor and second-guessing."},
+    {icon:"📰",name:"Press release before you build",desc:"Write the launch announcement before scoping. If you can't write it, the goals aren't clear enough to build toward."},
+    {icon:"🚨",name:"Escalate early with a recommendation",desc:"'Problem + 2 options + my recommendation' keeps you in the driver's seat. 'We have a problem' makes you look reactive."},
+    {icon:"🔬",name:"Pre-mortem everything",desc:"Assume failure before it happens. Top 3 risks get owners, mitigations, and explicit escalation triggers."}
+  ],
+  recall:{q:"What does a good escalation message look like?",a:"'We have a problem. Here are two options with trade-offs. I recommend option A because [specific reason]. What do you need from me to approve?' Never just: 'We have a problem.' The recommendation keeps you in the driver's seat and builds trust with your manager over time."},
+  aha:{title:"The pre-mortem surfaces 30% more risks than standard risk reviews.",text:"Teams that imagine the project has already failed — before it starts — and enumerate every cause, surface significantly more risks. The 'it failed' framing removes optimism bias that standard 'what could go wrong?' reviews don't."},
+  objectives:["Turn ambiguous asks into scoped, executable plans that teams can commit to","Map cross-team dependencies proactively before they become blockers","Run pre-mortems that surface the risks that actually matter","Lead incidents and post-mortems with composure and blameless framing","Write trade-off memos that document hard calls for future audit","Escalate risks early with recommendations, not just problem statements"],
+  resources:[
+    {icon:"📗",title:"An Elegant Puzzle — Will Larson",url:"",desc:"Systems of engineering management — how work flows across teams, organizational bottlenecks, and project health frameworks.",badge:"Core reading",badgeBg:"var(--coral-light)",badgeColor:"var(--coral-dark)"},
+    {icon:"🔗",title:"Shape Up — Basecamp",url:"https://basecamp.com/shapeup",desc:"Fixed time, variable scope — the appetite concept and shaping frameworks are directly applicable to cross-team scoping.",badge:"Free online",badgeBg:"var(--teal-light)",badgeColor:"var(--teal-dark)"},
+    {icon:"🔗",title:"Google SRE Book — Chapters 14–15",url:"https://sre.google/sre-book/table-of-contents/",desc:"The incident management and postmortem chapters set the gold standard for blameless culture and structured retrospection.",badge:"Free online",badgeBg:"var(--teal-light)",badgeColor:"var(--teal-dark)"}
+  ],
+  checklist:[
+    {title:"Exercises",items:[
+      {label:"Mapped hidden dependencies on a past delayed project and built a personal kickoff checklist from the findings",type:"Exercise"},
+      {label:"Ran a pre-mortem on a current initiative: top 3 risks have owners, mitigations, and escalation triggers",type:"Exercise"},
+      {label:"Wrote a trade-off memo: context, options, trade-offs accepted, recommendation, 'what we're NOT doing'",type:"Exercise"},
+      {label:"Led or closely observed an incident retrospective with a blameless frame",type:"Exercise"}
+    ]},
+    {title:"Management Tips Practiced",items:[
+      {label:"Set a proactive update cadence at project start — before any stakeholder asked",type:"Tip"},
+      {label:"Escalated a risk early with a recommendation and two options, not just a problem statement",type:"Tip"},
+      {label:"Wrote a press release or outcome statement before scoping began",type:"Tip"}
+    ]},
+    {title:"Objectives — I can now…",items:[
+      {label:"Turn ambiguous asks into scoped executable plans that teams can commit to",type:"Objective"},
+      {label:"Proactively surface cross-team dependencies before they become blockers",type:"Objective"},
+      {label:"Escalate risks with recommendations — not just problem statements",type:"Objective"}
+    ]}
+  ],
+  flashcards:[
+    {q:"What is the pre-mortem technique?",a:"Assume the project already failed. Ask: 'What happened?' List causes. Score by likelihood × impact. Top 3 get mitigation plans and owners."},
+    {q:"When should you escalate?",a:"Before it's urgent — with a recommendation. Early + options + recommendation = trust. Late + problem only = fire drill."},
+    {q:"What is 'press release first'?",a:"Write the launch announcement before scoping. If you can't write it, the goals aren't clear enough to build toward."},
+    {q:"What goes in a trade-off memo?",a:"Context, options considered, what you gain/lose with each, recommendation, and explicitly what you're NOT choosing and why."}
+  ],
+  feynmanPrompt:"Explain to a new engineer why writing down what could go wrong before a project starts actually helps the project succeed."
+},
+{
+  id:"m5",color:"#8B3A6B",bg:"#F5E8F0",dark:"#5C1E46",num:"05",phase:"Relationships",
+  title:"Team Bonding & Psychological Safety",
+  emoji:"🤝",
+  metaphor:"The captain who knows every crew member's strengths — and makes sure each person knows they're needed for the voyage.",
+  hook:"Why does the most technically brilliant team sometimes produce worse outcomes than an average team with stronger trust?",
+  hookSub:"Because trust is the performance multiplier. Google's Project Aristotle found psychological safety — not individual talent — is the single strongest predictor of team effectiveness. As a principal engineer, you set the tone. This module teaches you to build the conditions where engineers take risks, admit mistakes, and do their best work.",
+  story:[
+    {who:"🛡️ Safety Sam",text:"Sam joined a team where nobody asked questions in design reviews — they just nodded and then filed tickets later. He started a practice: at the end of every review, he asked 'What would make you most nervous about this design?' and shared his own answer first. Within 6 weeks, engineers were surfacing real risks in the room instead of finding them in production."},
+    {who:"🎯 Kudos Kavya",text:"Kavya kept a running doc called 'wins this week' — 5 bullet points she sent to the team every Friday, naming specific engineers for specific contributions. After 3 months, her skip-level mentioned: 'Your team has the highest retention in the org this year.' She had never discussed retention. The kudos doc was doing work she didn't know it was doing."}
+  ],
+  model:"Psychological safety = you can take risks without fear of punishment. It's not kindness — it's the engineering infrastructure for high performance.",
+  tactics:[
+    {icon:"🙋",name:"Share your own uncertainty first",desc:"When you admit you don't know, or share a mistake you made, you give the whole team permission to do the same. Safety flows from the top of the influence hierarchy."},
+    {icon:"🎯",name:"Name contributions specifically and publicly",desc:"'Good work' is useless. 'Maya spotted the race condition in the cache layer that would have taken us 2 days to debug' is memorable and motivating."},
+    {icon:"🔄",name:"Run blameless retrospectives every sprint",desc:"Not just post-incidents. Normalize asking 'what slowed us down?' every cycle. The team that surfaces friction fast iterates fast."},
+    {icon:"🚪",name:"Create explicit invitation to disagree",desc:"'What am I missing?' and 'I could be wrong about this — push back if you see it differently' are phrases that unlock team intelligence."},
+    {icon:"🎲",name:"Celebrate failure-as-learning",desc:"When an experiment fails, treat the learning as the artifact. 'What did we learn that we wouldn't have known otherwise?' changes the team's relationship with risk."},
+    {icon:"☕",name:"Invest in non-work connection",desc:"Teams that know each other as people — not just role holders — communicate faster, assume good intent, and recover from conflict faster. 15 minutes of non-work conversation has measurable performance ROI."}
+  ],
+  recall:{q:"What did Google's Project Aristotle find was the most important predictor of team effectiveness?",a:"Psychological safety — the belief that you won't be punished for speaking up, asking questions, or admitting mistakes. It outranked individual talent, clear goals, and dependability. Teams where members felt safe to take risks outperformed teams with higher average technical skill."},
+  aha:{title:"Vulnerability from the top creates safety for everyone below it.",text:"Research by Amy Edmondson shows that safety flows from whoever has the most influence. When a principal engineer says 'I got this wrong' or 'I don't know,' it gives every junior engineer explicit permission to do the same. Your vulnerability is an act of team leadership."},
+  objectives:["Understand what psychological safety is — and what it is not","Build explicit practices that make your team feel safe to take risks and admit mistakes","Give specific, memorable public credit that motivates rather than patronizes","Run retrospectives that surface real friction instead of comfortable generalities","Create explicit invitations for disagreement in your technical discussions","Recognize when a team's silence is a safety problem, not an agreement signal"],
+  resources:[
+    {icon:"📗",title:"The Fearless Organization — Amy Edmondson",url:"",desc:"The foundational research on psychological safety in teams. Chapters 3–4 are most applicable to principal engineers leading without managing.",badge:"Core reading",badgeBg:"var(--pink-light)",badgeColor:"var(--pink-dark)"},
+    {icon:"📗",title:"Radical Candor — Kim Scott",url:"",desc:"Care Personally × Challenge Directly creates the conditions for honest feedback in both directions. Relevant chapter: 'Creating a Culture of Guidance.'",badge:"Core reading",badgeBg:"var(--pink-light)",badgeColor:"var(--pink-dark)"},
+    {icon:"🔗",title:"Project Aristotle — Google re:Work",url:"https://rework.withgoogle.com/print/guides/5721312655835136/",desc:"The original research summary on what makes teams effective. Read the 5-factor framework and focus on why safety outranks all others.",badge:"Free online",badgeBg:"var(--teal-light)",badgeColor:"var(--teal-dark)"}
+  ],
+  checklist:[
+    {title:"Exercises",items:[
+      {label:"Ran a design review where I asked 'What would make you most nervous?' and shared my own answer first",type:"Exercise"},
+      {label:"Started a weekly wins/kudos habit: specific named contributions, sent consistently for 4+ weeks",type:"Exercise"},
+      {label:"Ran a sprint retrospective with a blameless framing and surfaced at least one non-obvious friction point",type:"Exercise"},
+      {label:"Had a non-work conversation with at least 3 team members to build person-to-person connection",type:"Exercise"}
+    ]},
+    {title:"Management Tips Practiced",items:[
+      {label:"Shared my own uncertainty or mistake first in a group setting to model safety",type:"Tip"},
+      {label:"Gave specific named public credit (not generic praise) to team members",type:"Tip"},
+      {label:"Used 'What am I missing?' or 'push back if you see it differently' in a technical discussion",type:"Tip"}
+    ]},
+    {title:"Objectives — I can now…",items:[
+      {label:"Build explicit safety practices that unlock my team's real intelligence",type:"Objective"},
+      {label:"Give specific public credit that motivates rather than patronizes",type:"Objective"},
+      {label:"Recognize when team silence is a safety problem, not an agreement signal",type:"Objective"}
+    ]}
+  ],
+  flashcards:[
+    {q:"What is psychological safety (Edmondson definition)?",a:"The belief that you won't be punished or humiliated for speaking up with ideas, questions, concerns, or mistakes."},
+    {q:"What did Project Aristotle find?",a:"Psychological safety — not individual talent or clear goals — is the #1 predictor of team effectiveness at Google."},
+    {q:"How does a principal engineer create safety?",a:"By modeling it first: sharing uncertainty, admitting mistakes, explicitly inviting disagreement, and celebrating learning from failure."},
+    {q:"Why is 'Good work' ineffective praise?",a:"It's not specific enough to be memorable or actionable. Name the person, the behavior, and the specific impact."}
+  ],
+  feynmanPrompt:"Explain psychological safety to a new engineer who thinks the key to team performance is hiring the smartest people."
+},
+{
+  id:"m6",color:"#3D4A5C",bg:"#E8ECF0",dark:"#1A2230",num:"06",phase:"Relationships",
+  title:"Manager Bonding & Managing Up",
+  emoji:"🧲",
+  metaphor:"A skilled navigator who keeps the captain fully informed — so the captain can fight the battles the navigator can't see.",
+  hook:"What's the difference between a principal engineer whose ideas get funded and one whose identical ideas get ignored?",
+  hookSub:"Often it's not the idea — it's the relationship with their manager and skip-level. Managing up isn't flattery. It's making your manager's job easier, keeping them informed before they need to ask, and building the kind of trust that means they'll fight for your priorities in rooms you're not in.",
+  story:[
+    {who:"📬 Update Uma",text:"Uma sent her manager 3 bullets every Friday: top progress this week, top risk on the horizon, one thing she needed. After 6 weeks her manager stopped asking 'how's the project going?' in 1:1s — they started talking about the future instead. 'She's the most reliable person on my team,' her manager said in a skip-level. Uma never heard those words directly."},
+    {who:"🤝 Skip-Level Sam",text:"Sam asked his skip-level for a 30-minute 'career alignment conversation' once a quarter. He came prepared: what he'd built, what he was learning, where he saw opportunities. His skip-level started including him in org-level discussions. When headcount opened, she said his name first. The conversation had created visibility Sam hadn't known was missing."}
+  ],
+  model:"Managing up = making your manager informed, relieved, and ready to advocate for you — before they ever have to ask.",
+  tactics:[
+    {icon:"📬",name:"Friday top-3 update",desc:"Progress + risk + one ask. Every Friday. Your manager stops wondering; you start leading. Never skip it."},
+    {icon:"🎯",name:"Bring solutions, not problems",desc:"'We have a problem + 2 options + my recommendation' versus 'we have a problem.' The first makes your manager's job easier. The second makes it harder."},
+    {icon:"🤝",name:"Quarterly skip-level career conversation",desc:"Don't wait for your skip-level to discover you. Schedule 30 minutes per quarter. Come with your wins, your thinking, and one question about org direction."},
+    {icon:"📢",name:"Share your work-in-progress early",desc:"Let your manager see your thinking before it's polished. They can course-correct, connect dots, and often accelerate your work."},
+    {icon:"🔍",name:"Understand their priorities",desc:"What does your manager's manager care about this quarter? Align your work to those themes. What's invisible to them becomes visible when it maps to their agenda."},
+    {icon:"⚡",name:"No surprises — ever",desc:"Bad news delivered early is manageable. Bad news delivered late is a crisis. Your manager would rather know on day 3 than day 30."}
+  ],
+  recall:{q:"What is the most important thing you can give your manager to build the relationship?",a:"Reliability and no surprises. A weekly 3-bullet update (progress, risk, one ask) makes you the most reliable person on their team. Over time, reliability becomes trust. Trust becomes advocacy. Your manager will fight harder for someone they never have to worry about than for someone technically better but unpredictable."},
+  aha:{title:"Your manager advocates for you in rooms you're not in.",text:"Every meaningful career opportunity — new projects, headcount, promotions, visibility — gets discussed in conversations you never attend. The quality of your relationship with your manager determines how loudly and confidently they say your name in those rooms. Managing up is career infrastructure."},
+  objectives:["Build a reliable weekly update habit that keeps your manager informed without meetings","Make your manager's job easier by bringing recommendations, not just problems","Build a quarterly relationship with your skip-level before you need anything from them","Understand your manager's and skip-level's priorities and connect your work to them","Never let your manager be surprised by a risk you could have surfaced earlier","Build the kind of trust that makes your manager an active advocate for your work"],
+  resources:[
+    {icon:"📗",title:"The Manager's Path — Camille Fournier",url:"",desc:"The chapters on leading without authority and managing your own manager are essential for principal engineers navigating upward relationships.",badge:"Core reading",badgeBg:"var(--slate-light)",badgeColor:"var(--slate-dark)"},
+    {icon:"📗",title:"Managing Up — Mary Abbajay",url:"",desc:"Practical frameworks for understanding your manager's style and working with it, not against it. Immediately applicable.",badge:"Core reading",badgeBg:"var(--slate-light)",badgeColor:"var(--slate-dark)"},
+    {icon:"🔗",title:"Lara Hogan — What Does Sponsorship Look Like?",url:"https://larahogan.me/blog/what-does-sponsorship-look-like/",desc:"Explains the difference between mentorship and sponsorship — and why your skip-level relationship is really about earning sponsorship.",badge:"Free online",badgeBg:"var(--teal-light)",badgeColor:"var(--teal-dark)"}
+  ],
+  checklist:[
+    {title:"Exercises",items:[
+      {label:"Established the Friday top-3 update habit with my manager and maintained it for 4+ consecutive weeks",type:"Exercise"},
+      {label:"Had a 30-minute skip-level career conversation, came prepared with wins and one org-direction question",type:"Exercise"},
+      {label:"Surfaced a risk to my manager on day 3 instead of day 30 — before it became a crisis",type:"Exercise"},
+      {label:"Connected a current project or initiative explicitly to my manager's or skip-level's quarterly priorities",type:"Exercise"}
+    ]},
+    {title:"Management Tips Practiced",items:[
+      {label:"Sent a weekly top-3 update (progress, risk, one ask) without being asked",type:"Tip"},
+      {label:"Brought a recommendation with every problem I escalated",type:"Tip"},
+      {label:"Shared work-in-progress thinking with my manager before it was polished",type:"Tip"}
+    ]},
+    {title:"Objectives — I can now…",items:[
+      {label:"Keep my manager informed and never surprised — as a consistent practice, not a one-time effort",type:"Objective"},
+      {label:"Have a meaningful quarterly relationship with my skip-level",type:"Objective"},
+      {label:"Connect my work visibly to what my manager and their manager care about",type:"Objective"}
+    ]}
+  ],
+  flashcards:[
+    {q:"What is the Friday top-3 update?",a:"Progress this week. Top risk on the horizon. One thing I need from you. Every Friday. Never skip it."},
+    {q:"Why does managing up matter for your career?",a:"Meaningful opportunities are discussed in rooms you're not in. Your manager's advocacy in those rooms depends on how much they trust and understand your work."},
+    {q:"How often should you talk to your skip-level?",a:"At minimum once a quarter, scheduled proactively by you, with a prepared agenda including your wins and one org-direction question."},
+    {q:"What is the 'no surprises' principle?",a:"Surface risks early — day 3 not day 30. Bad news early is manageable. Bad news late is a crisis."}
+  ],
+  feynmanPrompt:"Explain managing up to someone who thinks it just means being nice to your boss."
+},
+{
+  id:"m7",color:"#3B6D11",bg:"#EAF3DE",dark:"#27500A",num:"07",phase:"Leadership",
+  title:"Leadership Tactics for Engineers",
+  emoji:"🧭",
+  metaphor:"A conductor who knows every instrument's range — and when to let silence do the work.",
+  hook:"What separates the principal engineer everyone wants in the room from the one who gives great answers but nobody thinks to invite?",
+  hookSub:"Presence — not personality, but process. Meetings they run produce decisions. Feedback they give changes behavior. Their team feels protected, not scattered. These are learnable mechanics, not innate traits. This module covers the practical leadership behaviors principal engineers need to sustain, week after week.",
+  story:[
+    {who:"👑 DRI Dmitri",text:"Dmitri started putting one name at the top of every meeting invite: 'Decision owner: [name].' His standups went from 22 minutes to 11 minutes in 3 weeks. 'When you know who decides, you know what your job is in the meeting.' He hadn't changed the agenda or the attendees — just the decision clarity."},
+    {who:"🛡️ Burnout Bea",text:"Bea noticed her best engineer's code review comments were getting shorter and more curt. She didn't raise it in a standup. She sent a direct Slack: 'You seem less energized than usual lately. Would it help to talk?' The engineer replied in 30 seconds. They talked for 45 minutes. The engineer stayed on the team. The alternative was a resignation 3 weeks later."}
+  ],
+  model:"Leadership without authority = clear decision owners + reliable information flow + behavioral feedback + protected team focus.",
+  tactics:[
+    {icon:"👑",name:"Every meeting needs a DRI",desc:"One person makes the call if consensus fails. Name them in the invite. It changes how people prepare and how decisions land."},
+    {icon:"🛡️",name:"Protect maker time as a team asset",desc:"Every interrupted deep-work hour costs ~23 minutes of recovery. Advocate for meeting-free blocks for the whole team — this is leadership, not personal preference."},
+    {icon:"🎯",name:"SBI feedback, not sandwich",desc:"Situation + Behavior + Impact. The 'good-bad-good' sandwich dilutes the message. SBI is precise and ends with a genuine question."},
+    {icon:"🔥",name:"Spot burnout before it's a resignation",desc:"Cynicism in language, shorter review comments, missed optional meetings. Ask at the first signal: 'You seem less energized. What's changed?'"},
+    {icon:"↩️",name:"Decline with a counter-offer",desc:"'No, but here's what I can do' is leadership. A flat no is just a boundary. The counter-offer preserves the relationship while maintaining capacity."},
+    {icon:"🌱",name:"Grow someone every week",desc:"One growth conversation, one skill observation, one public credit, one stretch assignment suggestion. Over a year this compounds into careers changed."}
+  ],
+  recall:{q:"What is the SBI feedback model, and why is the 'sandwich' a trap?",a:"Situation + Behavior + Impact. End with a genuine question: 'What was your perspective on how that went?' The feedback sandwich (good-bad-good) dilutes the critical message — recipients remember the praise and discount the middle. SBI is precise, behavioral, and treats the person as capable of receiving direct feedback."},
+  aha:{title:"Interruptions cost more than you think — 23 minutes per interruption.",text:"A UC Irvine study found it takes an average of 23 minutes and 15 seconds to fully return to a task after an interruption. One meeting notification mid-flow doesn't cost 10 seconds — it costs the rest of that focused session. Protecting maker time is an engineering performance optimization."},
+  objectives:["Run meetings that produce clear decisions with named owners rather than ongoing discussion","Give specific behavioral feedback (SBI) that changes how people work — without formal authority","Spot and address burnout early — before it becomes a resignation","Protect your team's maker time as a leadership act, not a personal preference","Decline requests with counter-offers that preserve relationships while maintaining capacity","Develop a consistent practice of growing at least one engineer per week"],
+  resources:[
+    {icon:"📗",title:"The Making of a Manager — Julie Zhuo",url:"",desc:"Meeting effectiveness, feedback quality, and team dynamics for leaders without formal authority.",badge:"Core reading",badgeBg:"var(--green-light)",badgeColor:"var(--green-dark)"},
+    {icon:"📗",title:"The Manager's Path — Camille Fournier",url:"",desc:"The technical lead chapters on leading without managing, mentoring, and protecting team health.",badge:"Core reading",badgeBg:"var(--green-light)",badgeColor:"var(--green-dark)"},
+    {icon:"🔗",title:"Maker's Schedule, Manager's Schedule — Paul Graham",url:"https://www.paulgraham.com/makersschedule.html",desc:"Why engineers need large uninterrupted blocks and how a single meeting destroys a half-day of deep work.",badge:"Free online",badgeBg:"var(--teal-light)",badgeColor:"var(--teal-dark)"}
+  ],
+  checklist:[
+    {title:"Exercises",items:[
+      {label:"Audited all recurring meetings I run: cancelled or converted information meetings, added DRI to all remaining",type:"Exercise"},
+      {label:"Delivered one hard SBI feedback conversation — written in advance, delivered in person, followed up after",type:"Exercise"},
+      {label:"Spotted a burnout signal in a teammate and had a direct, caring conversation about it",type:"Exercise"},
+      {label:"Advocated for and established at least one maker-time protection for my team",type:"Exercise"}
+    ]},
+    {title:"Management Tips Practiced",items:[
+      {label:"Named a DRI in every meeting invite I sent this month",type:"Tip"},
+      {label:"Declined at least one request with a concrete counter-offer, not a flat no",type:"Tip"},
+      {label:"Did something intentional to grow one engineer's skills or visibility every week for a month",type:"Tip"}
+    ]},
+    {title:"Objectives — I can now…",items:[
+      {label:"Run meetings that produce clear decisions with named owners",type:"Objective"},
+      {label:"Give behavioral feedback that changes how people work — without formal authority",type:"Objective"},
+      {label:"Protect my team's focus as a consistent leadership practice",type:"Objective"}
+    ]}
+  ],
+  flashcards:[
+    {q:"What is DRI?",a:"Directly Responsible Individual. Naming one person who makes the call if consensus fails changes how meetings are prepared and how decisions land."},
+    {q:"How long does an interruption actually cost?",a:"~23 minutes to fully return to deep work. One notification mid-flow costs the rest of that focused session."},
+    {q:"What are early burnout signals in high performers?",a:"Cynicism in language. Declining review quality. Shorter responses. Missed optional meetings. Act at the first signal."},
+    {q:"What is the SBI model?",a:"Situation + Behavior + Impact. Ends with a question. No sandwich. Direct and behavioral — it treats people as capable of honest feedback."}
+  ],
+  feynmanPrompt:"Explain to a new engineer why naming one decision-maker before a meeting makes the meeting shorter and the decision stickier."
+},
+{
+  id:"m8",color:"#378ADD",bg:"#E6F1FB",dark:"#0C447C",num:"08",phase:"Influence",
+  title:"Technical Influence at Scale",
+  emoji:"📐",
+  metaphor:"The engineer whose fingerprints are on every major system — not because they built them all, but because they shaped how others built.",
+  hook:"What does it mean to have technical influence at the organization level — not just your team?",
+  hookSub:"Principal engineers don't just solve technical problems. They change how the organization thinks about technical problems. This module teaches you to build org-wide technical credibility, shape standards and norms, run architecture forums, and become the engineer whose judgment leaders trust when the stakes are high.",
+  story:[
+    {who:"🏛️ Forum Phil",text:"Phil started a monthly Architecture Forum — 45 minutes, async reading beforehand, structured discussion. In the first month: 6 attendees, 1 decision. In month 6: 22 attendees, 4 decisions, 2 RFCs written as a result. Engineers who had never met were now collaborating on platform decisions. Phil created the room; the org filled it."},
+    {who:"📏 Standards Sofia",text:"Sofia noticed that three teams were solving the same API versioning problem in three different ways. She didn't write a mandate — she wrote a proposal, got feedback from each team, incorporated their constraints, and presented 'the pattern we converged on.' Three months later it was in the eng handbook as the standard. Nobody voted on it. Everyone had co-authored it."}
+  ],
+  model:"Technical influence at scale = org-wide credibility + shared standards you helped write + forums where engineers learn together + a reputation that precedes you.",
+  tactics:[
+    {icon:"🏛️",name:"Create and facilitate technical forums",desc:"Monthly architecture forums, design review guilds, or technical reading groups. The facilitator accumulates org-wide credibility with each session."},
+    {icon:"📏",name:"Write proposals, not mandates",desc:"Standards stick when people feel like co-authors. Share early, incorporate feedback, and attribute the ideas to the people who gave them."},
+    {icon:"🔗",name:"Be the connector across team boundaries",desc:"When Team A and Team B are solving the same problem differently, connect them before they diverge too far. The connector builds leverage no individual can."},
+    {icon:"📣",name:"Publish your thinking regularly",desc:"Internal blog posts, design doc summaries, RFC teardowns. Regular written publishing builds a reputation that works while you sleep."},
+    {icon:"🎓",name:"Run technical learning sessions",desc:"Monthly tech talks, architecture deep-dives, postmortem reviews. The person who runs learning at the org level shapes what the org thinks is important."},
+    {icon:"🧩",name:"Identify and close technical gaps",desc:"What does your org consistently struggle to do well? Identify the pattern, propose the solution, and own the capability build."}
+  ],
+  recall:{q:"What is the difference between a principal engineer who has authority and one who has influence?",a:"Authority lets you tell people what to do. Influence changes what people want to do. A principal engineer with influence shapes how teams think about problems, what standards they adopt voluntarily, and what approaches they bring to you for input — not because they have to, but because they've learned it improves their work."},
+  aha:{title:"Standards that engineers co-author become standards engineers actually follow.",text:"Mandated standards get worked around. Proposed standards get ignored. Standards that emerged from a conversation engineers participated in — and where their constraints were incorporated — become the default. The most durable technical standards at any company were negotiated, not decreed."},
+  objectives:["Build org-wide technical credibility that extends beyond your immediate team","Create and facilitate technical forums that compound learning across teams","Write technical proposals that get adopted because engineers feel like co-authors","Become the connector across teams solving similar problems differently","Publish your technical thinking regularly to build a reputation that scales","Identify and close persistent technical capability gaps in your organization"],
+  resources:[
+    {icon:"📗",title:"Staff Engineer — Will Larson",url:"",desc:"The 'Staff Engineer Archetypes' chapter — particularly the Architect and Tech Lead tracks — is the foundation for this module.",badge:"Core reading",badgeBg:"var(--blue-light)",badgeColor:"var(--blue-dark)"},
+    {icon:"📗",title:"The Architect Elevator — Gregor Hohpe",url:"",desc:"How architects move between the engine room and the boardroom — and how to build influence in both directions simultaneously.",badge:"Core reading",badgeBg:"var(--blue-light)",badgeColor:"var(--blue-dark)"},
+    {icon:"🔗",title:"staffeng.com — Staff+ Stories",url:"https://staffeng.com/stories",desc:"Read engineers who describe building org-wide influence. Filter for 'architect' and 'principal' archetypes.",badge:"Free online",badgeBg:"var(--teal-light)",badgeColor:"var(--teal-dark)"}
+  ],
+  checklist:[
+    {title:"Exercises",items:[
+      {label:"Created or co-created a recurring technical forum (architecture review, guild, reading group, etc.)",type:"Exercise"},
+      {label:"Wrote a technical proposal, incorporated feedback from at least 3 teams, and got it adopted",type:"Exercise"},
+      {label:"Connected two teams solving the same problem and facilitated a shared approach",type:"Exercise"},
+      {label:"Published at least one internal technical post or RFC summary that was read outside my team",type:"Exercise"}
+    ]},
+    {title:"Management Tips Practiced",items:[
+      {label:"Wrote a proposal rather than a mandate — and credited the people whose feedback shaped it",type:"Tip"},
+      {label:"Connected two engineers or teams who were solving overlapping problems",type:"Tip"},
+      {label:"Facilitated at least one org-level technical learning session",type:"Tip"}
+    ]},
+    {title:"Objectives — I can now…",items:[
+      {label:"Create forums that build org-wide technical credibility over time",type:"Objective"},
+      {label:"Write proposals that get adopted because engineers feel like co-authors",type:"Objective"},
+      {label:"Be the technical connector that reduces duplicated effort across teams",type:"Objective"}
+    ]}
+  ],
+  flashcards:[
+    {q:"Why do mandated standards fail?",a:"People work around what they're told to do. Standards that engineers co-authored — and whose constraints were incorporated — become the actual default."},
+    {q:"What makes a technical forum valuable?",a:"Consistent schedule, async pre-reading, structured discussion, and decisions or artifacts as outputs. The facilitator builds credibility with every session."},
+    {q:"What is a technical connector?",a:"Someone who notices when teams are solving overlapping problems differently and brings them together before the divergence becomes expensive."},
+    {q:"Why does publishing your thinking build influence?",a:"Regular written thinking builds a reputation that works while you sleep. Engineers start bringing you problems before they escalate."}
+  ],
+  feynmanPrompt:"Explain to a new engineer what it means to have technical influence — as opposed to technical authority."
+},
+{
+  id:"m9",color:"#7A4F2D",bg:"#F2EAE2",dark:"#4A2A12",num:"09",phase:"Sustaining",
+  title:"Sustaining the Standard — Long-Term Performance",
+  emoji:"🏔️",
+  metaphor:"The marathon runner who knows that pacing, not sprinting, is what gets you to the finish line — and to the next race.",
+  hook:"Getting to principal engineer is a milestone. Performing at principal engineer level — consistently, across years — is the actual achievement.",
+  hookSub:"This module is about the practices that sustain principal-level performance over time: protecting your own energy and focus, staying current without being distracted, building a peer network that keeps you sharp, and recognizing when you need to reset before you burn out. The long game requires different skills than the sprint.",
+  story:[
+    {who:"🔋 Energy Evan",text:"Evan hit his first principal milestone and immediately took on every cross-team initiative that came his way. By month 8, his technical judgment was sound but his presence in meetings felt thin. He started a weekly Friday practice: 2 hours blocked, no meetings, just thinking, reading, and writing. His next RFC was the clearest he'd written in a year. He hadn't needed more information — he'd needed more thinking time."},
+    {who:"🌱 Network Nina",text:"Nina made it a practice to have one lunch with a principal or staff engineer outside her org every month — not to get anything, just to talk about hard problems. In year 2, when she was wrestling with an organization redesign, she called one of those contacts. The conversation changed her entire approach. She hadn't hired a consultant. She'd built a network."}
+  ],
+  model:"Sustained principal-level performance = managed energy + intentional learning + a peer network + regular resets + honest self-assessment.",
+  tactics:[
+    {icon:"🔋",name:"Protect your own energy first",desc:"You cannot sustain technical leadership if you're depleted. Weekly deep-work blocks, quarterly resets, and clear off-work boundaries are professional requirements, not personal indulgences."},
+    {icon:"📚",name:"Scheduled learning, not reactive learning",desc:"Block 2 hours per week for intentional technical learning — not reading Slack, not incident reviews, but deliberate study of new areas relevant to your org's future."},
+    {icon:"🌐",name:"Build a peer network outside your company",desc:"One external conversation per month with someone at your level, in a different company. They see problems you don't. The ROI compounds."},
+    {icon:"🎯",name:"Annual self-assessment against the bar",desc:"Once a year, write down honestly: am I performing at the principal level or coasting on the title? What would the next version of me need to be true?"},
+    {icon:"🔄",name:"Quarterly theme setting",desc:"Pick one area per quarter to go genuinely deep: a new technical domain, a leadership skill, a relationship gap. Themes beat to-do lists."},
+    {icon:"📖",name:"Write to think, not just to document",desc:"Keep a private engineering log — decisions made, problems wrestled with, things learned. The act of writing sharpens your judgment over months."}
+  ],
+  recall:{q:"Why is sustaining principal-level performance harder than achieving it?",a:"Getting to principal requires a burst of exceptional performance. Sustaining it requires systems: protected energy, scheduled learning, peer networks, honest self-assessment, and quarterly focus. Without these systems, even technically strong principal engineers gradually drift into coasting — still competent, but no longer compounding."},
+  aha:{title:"The engineers who sustain excellence protect time to think.",text:"The most consistently high-performing senior engineers all have one thing in common: they protect unscheduled, unstructured thinking time. Not reading. Not Slack. Not incident reviews. Time to think. They treat it like a critical technical system: if it goes down, everything else degrades."},
+  objectives:["Build weekly practices that protect your energy and technical depth","Establish scheduled learning that keeps you current without being reactive","Build and maintain a peer network outside your company for cross-pollination","Conduct an honest annual self-assessment against the principal engineering bar","Set quarterly themes that create genuine depth rather than scattered attention","Use writing as a tool for sharpening your technical judgment over time"],
+  resources:[
+    {icon:"📗",title:"Deep Work — Cal Newport",url:"",desc:"The research and practice behind sustained focused work. Essential for understanding why interruption culture kills senior engineering performance.",badge:"Core reading",badgeBg:"var(--brown-light)",badgeColor:"var(--brown-dark)"},
+    {icon:"📗",title:"Essentialism — Greg McKeown",url:"",desc:"The disciplined pursuit of less but better. Directly applicable to managing the scope creep that derails senior engineers.",badge:"Core reading",badgeBg:"var(--brown-light)",badgeColor:"var(--brown-dark)"},
+    {icon:"🔗",title:"Paul Graham — Maker's Schedule",url:"https://www.paulgraham.com/makersschedule.html",desc:"Why large uninterrupted blocks are non-negotiable for senior technical work — and how to protect them.",badge:"Free online",badgeBg:"var(--teal-light)",badgeColor:"var(--teal-dark)"}
+  ],
+  checklist:[
+    {title:"Exercises",items:[
+      {label:"Established a weekly 2-hour deep-work block for intentional learning — no meetings, no Slack",type:"Exercise"},
+      {label:"Had at least one peer conversation per month with a principal/staff engineer outside my company",type:"Exercise"},
+      {label:"Completed an honest annual self-assessment: where am I at principal level, where am I coasting?",type:"Exercise"},
+      {label:"Set a quarterly theme for intentional depth and reviewed it at quarter end",type:"Exercise"},
+      {label:"Started a private engineering log — decisions, problems, learnings — maintained for 4+ weeks",type:"Exercise"}
+    ]},
+    {title:"Management Tips Practiced",items:[
+      {label:"Protected my energy by declining at least one request that would have depleted me without proportionate value",type:"Tip"},
+      {label:"Reached out to an external peer for a conversation about a hard technical or leadership problem",type:"Tip"},
+      {label:"Reviewed my quarterly theme with someone who would give honest feedback on whether I'd achieved depth",type:"Tip"}
+    ]},
+    {title:"Objectives — I can now…",items:[
+      {label:"Sustain principal-level performance through systems, not heroics",type:"Objective"},
+      {label:"Conduct honest self-assessment and act on the gaps I find",type:"Objective"},
+      {label:"Protect the conditions that make my best work possible",type:"Objective"}
+    ]}
+  ],
+  flashcards:[
+    {q:"What is the difference between getting to principal and sustaining it?",a:"Getting there requires exceptional performance. Sustaining requires systems: energy management, scheduled learning, peer network, honest self-assessment, quarterly focus."},
+    {q:"Why do senior engineers stagnate?",a:"They stop learning intentionally, stop protecting deep-work time, and start coasting on their existing knowledge. The environment rewards their past work, which masks the drift."},
+    {q:"What is a quarterly theme?",a:"Picking one area per quarter to go genuinely deep — a technical domain, a leadership skill, a relationship gap. Themes create compounding depth; scattered to-do lists don't."},
+    {q:"Why write to think?",a:"Writing forces you to articulate what you actually understand vs. what you think you understand. An engineering log of decisions and learnings compounds into judgment over years."}
+  ],
+  feynmanPrompt:"Explain to a junior engineer why reaching a senior title is not the same as sustaining senior-level performance — and what the difference looks like in practice."
+},
+{
+  id:"m10",color:"#534AB7",bg:"#EEEDFE",dark:"#3C3489",num:"10",phase:"Sustaining",
+  title:"Identity, Sponsorship & Career Architecture",
+  emoji:"🌱",
+  metaphor:"A sculptor who knows exactly which part of the marble still needs work — because they wrote it down last week.",
+  hook:"Why do some principal engineers plateau while others keep compounding — technically, in influence, and in impact?",
+  hookSub:"Because career at this level is architected, not accumulated. This final module is about knowing your archetype, telling your story with precision, actively sponsoring the engineers behind you, and designing the next chapter of your career intentionally. The principal engineer level is not a destination — it's a practice.",
+  story:[
+    {who:"🌟 Archetype Anika",text:"Anika spent 3 years being 'the best engineer in the room.' Then she wrote her readme. Section 3: 'What I'm working on as a leader: shaping technical direction at org level, not just my team.' Her manager read it. Two weeks later she was invited to the platform strategy meeting. The readme was her application — and she hadn't known she was applying."},
+    {who:"🚪 Sponsor Sol",text:"Sol said his mentees' names in rooms they weren't in. When headcount was being planned: 'Maya would be exceptional for that platform role.' Maya got the role. She found out 6 months later that Sol had spoken up. 'That's sponsorship,' Sol said. 'Mentorship is in the room with you. Sponsorship is in the rooms you're not invited to yet.' Sol had spent his career building engineers who then built organizations."}
+  ],
+  model:"Career at the principal level = intentional archetype + a clear story you can tell in 5 minutes + active sponsorship of others + honest inventory of your gaps.",
+  tactics:[
+    {icon:"🎯",name:"Know your archetype and work it",desc:"Tech Lead, Architect, Solver, Right Hand. Each creates leverage differently. Knowing yours means you stop trying to be all of them and start being exceptional at one."},
+    {icon:"🚪",name:"Sponsor publicly, mentor privately",desc:"Mentoring is in 1:1s. Sponsoring is in rooms your mentee isn't in. Say their name when headcount is discussed, attribute their ideas, recommend them for stretch roles."},
+    {icon:"📝",name:"Write your 'don't promote me yet' list",desc:"An honest private inventory of what you know is not yet at the next level. Engineers who know their specific gaps develop faster than those who wait for feedback."},
+    {icon:"⏱️",name:"Annual time allocation audit",desc:"How do you actually spend your time vs. how principal engineers should? Most discover 60%+ on IC work and under 15% on strategy and influence. The gap is the insight."},
+    {icon:"📖",name:"Write your staff readme",desc:"A personal operating manual: how you work, what you value, what you're growing, what helps you do your best work. Share it. Invite your team to write theirs."},
+    {icon:"🎤",name:"Tell your career story with specificity",desc:"A 5-minute narrative: what you've built, the measurable impact, and where you're headed. Practiced until it sounds natural. The story you tell about yourself shapes the opportunities people offer you."}
+  ],
+  recall:{q:"What is the difference between sponsoring and mentoring — and why does it matter?",a:"Mentoring happens in 1:1s — advice, coaching, support. Sponsoring happens in the rooms your mentee isn't in: saying their name when headcount is discussed, attributing their ideas in meetings, recommending them for stretch roles. Sponsorship uses your earned credibility on someone else's behalf. It's rarer, more powerful, and what actually opens doors — especially for engineers from underrepresented groups."},
+  aha:{title:"The time audit is the most uncomfortable exercise here.",text:"Most principal engineers believe they spend ~40% of their time on strategy and influence. The average actual number, tracked honestly for one week, is 10–15%. The gap between perceived and actual leverage allocation is where career growth lives. You can't fix what you can't see."},
+  objectives:["Name your principal engineer archetype and double down on what it asks of you","Tell your career story compellingly in 5 minutes to any audience","Actively sponsor engineers — not just mentor — as a consistent practice","Conduct an annual time allocation audit and close the gap between actual and intended","Write a staff readme and share it to invite collaboration","Build an honest, specific inventory of your gaps to close in the next 12 months"],
+  resources:[
+    {icon:"📗",title:"The Staff Eng Path — Tanya Reilly",url:"",desc:"The most complete treatment of staff/principal engineer identity, archetypes, and career development available.",badge:"Core reading",badgeBg:"var(--purple-light)",badgeColor:"var(--purple-dark)"},
+    {icon:"📗",title:"Staff Engineer — Will Larson",url:"",desc:"The archetype chapters and real-world profiles show how different engineers create leverage differently. Diversity of approaches is as instructive as any framework.",badge:"Core reading",badgeBg:"var(--purple-light)",badgeColor:"var(--purple-dark)"},
+    {icon:"📗",title:"Dare to Lead — Brené Brown",url:"",desc:"The armored vs. daring leader distinction is relevant to principal engineers who've succeeded through technical excellence and now need to lead through vulnerability.",badge:"Supplemental",badgeBg:"var(--purple-light)",badgeColor:"var(--purple-dark)"},
+    {icon:"🔗",title:"staffeng.com — Principal & Staff Stories",url:"https://staffeng.com/stories",desc:"Read 5+ stories from engineers with different archetypes. How each found their path is as valuable as any framework.",badge:"Free online",badgeBg:"var(--teal-light)",badgeColor:"var(--teal-dark)"}
+  ],
+  checklist:[
+    {title:"Exercises",items:[
+      {label:"Named my principal engineering archetype and wrote a paragraph on how it creates my specific leverage",type:"Exercise"},
+      {label:"Wrote my staff readme and shared it with my team and manager",type:"Exercise"},
+      {label:"Completed a week-long time allocation audit and wrote a 30-day plan to close the gaps",type:"Exercise"},
+      {label:"Practiced my 5-minute career narrative with a peer and had the career conversation with my manager",type:"Exercise"},
+      {label:"Actively sponsored one engineer: said their name in a room they weren't in, for an opportunity they couldn't see",type:"Exercise"}
+    ]},
+    {title:"Management Tips Practiced",items:[
+      {label:"Wrote my private 'don't promote me yet' list — a specific, honest inventory of gaps",type:"Tip"},
+      {label:"Sponsored rather than just mentored: opened a door someone couldn't open themselves",type:"Tip"},
+      {label:"Shared my engineering log with someone who could give honest feedback on my growth",type:"Tip"}
+    ]},
+    {title:"Objectives — I can now…",items:[
+      {label:"Name my archetype and articulate precisely how I create leverage through it",type:"Objective"},
+      {label:"Tell my career story in 5 minutes with specificity, impact metrics, and a clear direction",type:"Objective"},
+      {label:"Sponsor engineers consistently — not as a one-off, but as a career practice",type:"Objective"},
+      {label:"Audit my time honestly and close the gap between perception and actual leverage",type:"Objective"}
+    ]}
+  ],
+  flashcards:[
+    {q:"What are the four principal engineer archetypes?",a:"Tech Lead, Architect, Solver, Right Hand. Each creates leverage differently. Knowing yours lets you stop trying to be all four."},
+    {q:"What is a staff readme?",a:"A personal operating manual: how you work, what you value, what you're developing, and what helps you do your best work. Share it."},
+    {q:"What is the time audit finding for most principal engineers?",a:"Most believe they spend ~40% on strategy/influence. The actual average is 10–15%. The gap is where career growth lives."},
+    {q:"What is the 'don't promote me yet' list?",a:"A private, honest inventory of the specific gaps between where you are now and where the next level requires. More precise than waiting for feedback."}
+  ],
+  feynmanPrompt:"Explain what it means to 'sponsor' someone at work to a person who has only heard the word in the context of sports jerseys."
+}
+];
+const SCHEDULE=[
+{week:"Week 1-2",focus:"M01 · Technical Strategy",desc:"Read Staff Engineer and Architect Elevator. Write your 1-page technical vision for a system you own. Pre-brief one skeptic before sharing it with your team.",tip:"💡 Ship the draft before it feels ready. An imperfect anchor is better than no anchor.",deliverable:"Technical vision doc (1 page, shared with team and EM)"},
+{week:"Week 3-4",focus:"M01 · Strategy (continued)",desc:"Write a real RFC on a pending decision. Use the pre-brief tactic. Send with a hard feedback deadline. Build your team's tech radar and present it to your director.",tip:"💡 The RFC group review should feel like ratification — all real work happens in 1:1 pre-briefs beforehand.",deliverable:"Completed RFC with written Decision Record + team tech radar"},
+{week:"Week 5-6",focus:"M02 · Influence & Alignment",desc:"Map the real influence network for your current initiative. Rewrite a decision doc to pre-answer the top 3 objections. Identify your top 2 relationship gaps and make one deposit with each.",tip:"💡 Start building relationship capital before you need it. Help one stakeholder with their priority this week.",deliverable:"Power map + rewritten decision doc"},
+{week:"Week 7-8",focus:"M02 · Influence (continued)",desc:"Navigate a real cross-team conflict: name it, facilitate it, send a written resolution within 24 hours. Read Never Split the Difference. Start your Friday top-3 update habit.",tip:"💡 Practice 'disagree and commit' out loud in at least one meeting this week.",deliverable:"Cross-team conflict resolution summary"},
+{week:"Week 9-10",focus:"M03 · Communication",desc:"Record and critique a 3-minute exec brief — eliminate all jargon. Write a design doc that a new hire could execute. Give SBI feedback on a real behavioral issue.",tip:"💡 Send at least one written summary after a verbal alignment conversation this week.",deliverable:"Design doc + exec brief recording + SBI feedback delivered"},
+{week:"Week 11-12",focus:"M03 & M04 · Communication + Execution",desc:"Run a coaching-only mentorship 1:1 (questions only). Map hidden dependencies on a past delayed project. Run a pre-mortem on your current initiative.",tip:"💡 Establish your weekly project update cadence before anyone asks for it.",deliverable:"Mentorship write-up + pre-mortem doc with top 3 risks and mitigation plans"},
+{week:"Week 13-14",focus:"M04 · Cross-Team Execution",desc:"Write a trade-off memo on a real technical decision. Facilitate a cross-team kickoff. Lead or closely observe an incident retrospective with a blameless frame.",tip:"💡 Escalate one risk this week with a recommendation — not just a problem statement.",deliverable:"Trade-off memo + facilitated kickoff + retro notes"},
+{week:"Week 15-16",focus:"M05 · Team Bonding",desc:"Run a design review with 'What would make you most nervous?' Start a weekly wins/kudos habit. Conduct a sprint retro with blameless framing.",tip:"💡 Have non-work conversations with at least 3 team members this week to build person-to-person trust.",deliverable:"Kudos habit started + blameless retro notes"},
+{week:"Week 17-18",focus:"M05 & M06 · Team + Manager Bonding",desc:"Continue kudos habit. Have your first skip-level career conversation. Surface a risk to your manager on day 3 instead of day 30.",tip:"💡 Come to the skip-level conversation with your wins, your thinking, and one question about org direction.",deliverable:"Skip-level conversation completed + risk surfaced early"},
+{week:"Week 19-20",focus:"M06 & M07 · Manager Bonding + Leadership Tactics",desc:"Establish the Friday top-3 update with your manager and make it consistent. Audit all recurring meetings you run. Add a DRI to every meeting invite.",tip:"💡 The Friday update builds more trust compounded over time than any single conversation.",deliverable:"Friday update habit established + meeting audit completed"},
+{week:"Week 21-22",focus:"M07 & M08 · Leadership + Technical Influence",desc:"Deliver SBI feedback. Advocate for maker-time protection. Create or co-create a recurring technical forum. Connect two teams solving overlapping problems.",tip:"💡 Write a proposal, not a mandate — and credit the people whose feedback shaped it.",deliverable:"SBI feedback delivered + technical forum kickoff + cross-team connection made"},
+{week:"Week 23-24",focus:"M08 · Technical Influence at Scale",desc:"Write and publish an internal technical post or RFC summary. Get one proposal adopted across multiple teams. Identify and name one persistent technical capability gap in your org.",tip:"💡 Regular published thinking builds a reputation that works while you sleep.",deliverable:"Internal post published + proposal adopted + capability gap identified"},
+{week:"Month 4",focus:"M09 · Sustaining Performance",desc:"Establish your weekly deep-work learning block. Have one external peer conversation. Begin a private engineering log. Set your quarterly theme.",tip:"💡 Sustaining excellence requires systems, not heroics. Start building them now before you need them.",deliverable:"Learning block established + engineering log started + quarterly theme set"},
+{week:"Month 5",focus:"M09 & M10 · Sustaining + Identity",desc:"Continue external peer conversations. Complete your honest annual self-assessment. Write your staff readme. Start your time allocation audit.",tip:"💡 Most principal engineers discover their time allocation doesn't match their intentions. The audit is the insight.",deliverable:"Self-assessment written + staff readme shared + time audit completed"},
+{week:"Month 6+",focus:"M10 · Career Architecture (ongoing)",desc:"Practice your 5-minute career narrative. Actively sponsor one engineer. Write your 'don't promote me yet' list. Review your quarterly theme. This module never ends — it compounds.",tip:"💡 Sponsorship is the highest-leverage thing you can do with your earned credibility. Start today.",deliverable:"Career narrative practiced + one engineer sponsored + gap list written"}
+];
 
-let cur=0,done=new Set(),wkDone=new Set();
+let cur=0,done=new Set(),wkActive=null;
 
-function buildWeeks(){
-  const w=document.getElementById('weekDots');
-  for(let i=1;i<=8;i++){
+function buildPhases(){
+  const phases=[
+    {key:'Foundation',label:'Phase 1',title:'Foundation',weeks:'Weeks 1–14',mods:'M01–M03'},
+    {key:'Execution',label:'Phase 2',title:'Execution & Delivery',weeks:'Weeks 9–14',mods:'M04'},
+    {key:'Relationships',label:'Phase 3',title:'Relationships',weeks:'Weeks 15–20',mods:'M05–M06'},
+    {key:'Leadership',label:'Phase 4',title:'Leadership & Influence',weeks:'Weeks 19–24',mods:'M07–M08'},
+    {key:'Sustaining',label:'Phase 5',title:'Sustaining & Identity',weeks:'Months 4–6+',mods:'M09–M10'}
+  ];
+  const wrap=document.getElementById('phaseGrid');
+  phases.forEach(p=>{
     const d=document.createElement('div');
-    d.className='week-dot'+(i===1?' active':'');
-    d.id='wd'+i;
-    d.innerHTML=`<span>${i}</span><label>Wk ${i}</label>`;
-    d.onclick=()=>activateWeek(i);
-    w.appendChild(d);
-  }
+    d.className='phase-card';
+    d.id='phase_'+p.key;
+    d.innerHTML=`<div class="phase-label">${p.label}</div><div class="phase-title">${p.title}</div><div class="phase-weeks">${p.weeks}</div>`;
+    d.onclick=()=>scrollToPhase(p.key);
+    wrap.appendChild(d);
+  });
 }
 
-function activateWeek(n){
-  document.querySelectorAll('.week-dot').forEach(d=>d.classList.remove('active'));
-  wkDone.add(n);
-  wkDone.forEach(x=>{const e=document.getElementById('wd'+x);if(e)e.classList.add('done');});
-  const el=document.getElementById('wd'+n);
-  if(el){el.classList.remove('done');el.classList.add('active');}
+function scrollToPhase(key){
+  document.querySelectorAll('.phase-card').forEach(c=>c.classList.remove('active'));
+  const pcard=document.getElementById('phase_'+key);
+  if(pcard) pcard.classList.add('active');
+  const modIdx=MODULES.findIndex(m=>m.phase===key);
+  if(modIdx>=0) showMod(modIdx);
+}
+
+function buildTimeline(){
+  const wrap=document.getElementById('timeline');
+  SCHEDULE.forEach((row,i)=>{
+    const d=document.createElement('div');
+    d.className='wk-dot';
+    d.id='wkd'+i;
+    const shortFocus=row.focus.split('·')[0].trim();
+    d.innerHTML=`<span>${row.week.replace('Week ','W').replace('Month ','M')}</span><div class="wk-lbl">${shortFocus}</div>`;
+    d.onclick=()=>toggleWeekPanel(i,row,d);
+    wrap.appendChild(d);
+  });
+}
+
+function toggleWeekPanel(i,row,dot){
+  const panelId='wpanel'+i;
+  let existing=document.getElementById(panelId);
+  if(existing && existing.classList.contains('shown')){
+    existing.classList.remove('shown');
+    dot.classList.remove('active');
+    wkActive=null;
+    return;
+  }
+  document.querySelectorAll('.week-panel').forEach(p=>p.classList.remove('shown'));
+  document.querySelectorAll('.wk-dot').forEach(d=>d.classList.remove('active'));
+  if(!existing){
+    existing=document.createElement('div');
+    existing.className='week-panel';
+    existing.id=panelId;
+    existing.innerHTML=`
+      <div class="wp-head">
+        <div><div class="wp-week">${row.week}</div><div class="wp-focus">${row.focus}</div></div>
+        <button class="wp-close" onclick="document.getElementById('${panelId}').classList.remove('shown');document.querySelectorAll('.wk-dot').forEach(d=>d.classList.remove('active'))">×</button>
+      </div>
+      <div class="wp-desc">${row.desc}</div>
+      ${row.tip?`<div class="wp-tip">${row.tip}</div>`:''}
+      ${row.deliverable?`<div class="wp-deliverable"><span>✓</span><div><strong>Deliverable:</strong> ${row.deliverable}</div></div>`:''}`;
+    document.getElementById('timelineWrap').after(existing);
+  }
+  existing.classList.add('shown');
+  dot.classList.add('active');
+  wkActive=i;
+  existing.scrollIntoView({behavior:'smooth',block:'nearest'});
 }
 
 function buildNav(){
@@ -200,6 +881,7 @@ function buildNav(){
     p.className='mod-pill'+(i===0?' active':'');
     p.id='pill'+i;
     p.textContent=m.num+' · '+m.title;
+    p.style.cssText=i===0?`background:${m.color};color:#fff;border-color:${m.color}`:'';
     p.onclick=()=>showMod(i);
     nav.appendChild(p);
   });
@@ -217,136 +899,159 @@ function buildSections(){
 }
 
 function buildMod(m,i){
-  const stories=m.story.map(s=>`<div class="story-bubble"><div class="story-who">${s.who}</div><div class="story-text">${s.text}</div></div>`).join('');
-  const tactics=m.tactics.map(t=>`<div class="tactic"><div class="tactic-icon">${t.icon}</div><div class="tactic-name">${t.name}</div><div class="tactic-desc">${t.desc}</div></div>`).join('');
-  const tacticsCol=m.tactics.map(t=>`<div style="display:flex;gap:10px;align-items:flex-start"><div style="font-size:20px;flex-shrink:0">${t.icon}</div><div><div style="font-size:13px;font-weight:700;color:var(--ink);margin-bottom:3px">${t.name}</div><div style="font-size:12px;color:var(--muted);line-height:1.55">${t.desc}</div></div></div>`).join('');
-  const palace=m.palace.map(p=>`<div class="palace-room"><div class="room-icon">${p.icon}</div><div class="room-name">${p.name}</div><div class="room-concept">${p.concept}</div></div>`).join('');
-  const companies=m.companies.map(c=>`<span class="company-chip"><i class="ti ti-building" aria-hidden="true" style="font-size:11px"></i> ${c}</span>`).join('');
+  const stories=m.story.map(s=>`<div class="story-bubble" style="border-left-color:${m.color}"><div class="story-who" style="color:${m.color}">${s.who}</div><div class="story-text">${s.text}</div></div>`).join('');
   const cards=m.flashcards.map((fc,fi)=>`<div class="flashcard-wrap" id="fc${i}_${fi}" onclick="flip('fc${i}_${fi}')"><div class="flashcard-inner"><div class="flashcard-face flashcard-front"><div class="card-side">Question — tap to flip</div><div class="card-text">${fc.q}</div></div><div class="flashcard-face flashcard-back" style="background:${m.bg}"><div class="card-side" style="color:${m.dark};opacity:.6">Answer</div><div class="card-text" style="color:${m.dark}">${fc.a}</div></div></div></div>`).join('');
   const kmapNodes=[
-    {label:"Vision",bg:"#EEEDFE",color:"#3C3489"},
-    {label:"RFC",bg:"#EEEDFE",color:"#3C3489"},
-    {label:"Stakeholder map",bg:"#E1F5EE",color:"#085041"},
-    {label:"Pre-brief",bg:"#E1F5EE",color:"#085041"},
-    {label:"Design doc",bg:"#FAEEDA",color:"#633806"},
-    {label:"Dep map",bg:"#FAECE7",color:"#712B13"},
-    {label:"DRI",bg:"#EAF3DE",color:"#27500A"},
-    {label:"Time audit",bg:"#E6F1FB",color:"#0C447C"}
+    {label:"Vision",bg:"#EEEDFE",color:"#3C3489"},{label:"Influence",bg:"#E1F5EE",color:"#085041"},
+    {label:"Communication",bg:"#FAEEDA",color:"#633806"},{label:"Execution",bg:"#FAECE7",color:"#712B13"},
+    {label:"Team Safety",bg:"#F5E8F0",color:"#5C1E46"},{label:"Mgr Bonding",bg:"#E8ECF0",color:"#1A2230"},
+    {label:"Leadership",bg:"#EAF3DE",color:"#27500A"},{label:"Org Influence",bg:"#E6F1FB",color:"#0C447C"},
+    {label:"Sustaining",bg:"#F2EAE2",color:"#4A2A12"},{label:"Identity",bg:"#EEEDFE",color:"#3C3489"}
   ];
-  const visible=kmapNodes.slice(0,Math.min(i+2,kmapNodes.length));
+  const visible=kmapNodes.slice(0,Math.min(i+1,kmapNodes.length));
   const kmap=visible.map((n,j)=>(j>0?'<div class="kmap-arrow">→</div>':'')+`<div class="kmap-node" style="background:${n.bg};color:${n.color}">${n.label}</div>`).join('');
+  const half=Math.ceil((m.objectives||[]).length/2);
+  const obj1=(m.objectives||[]).slice(0,half).map(o=>`<div class="obj-row"><span class="obj-dot" style="background:${m.color}"></span><span>${o}</span></div>`).join('');
+  const obj2=(m.objectives||[]).slice(half).map(o=>`<div class="obj-row"><span class="obj-dot" style="background:${m.color}"></span><span>${o}</span></div>`).join('');
+  const tipsList=(m.tactics||[]).map(t=>`<div class="tip-row"><div class="tip-icon">${t.icon}</div><div><div class="tip-name">${t.name}</div><div class="tip-desc">${t.desc}</div></div></div>`).join('');
+  const resHTML=(m.resources||[]).map(r=>`<div class="res-item"><div class="res-icon" style="background:${r.url?'var(--teal-light)':'var(--purple-light)'}"><span style="font-size:15px">${r.icon}</span></div><div style="flex:1;min-width:0"><div class="res-title">${r.url?`<a href="${r.url}" target="_blank" rel="noopener">${r.title}</a>`:r.title}</div><div class="res-desc">${r.desc}</div><span class="res-badge" style="background:${r.badgeBg};color:${r.badgeColor}">${r.badge}</span></div></div>`).join('');
+  const totalCl=(m.checklist||[]).reduce((s,sec)=>s+sec.items.length,0);
+  const clHTML=(m.checklist||[]).map(sec=>`<div class="cl-sec-hdr">${sec.title}</div>${sec.items.map((item,ci)=>`<label class="cl-item" id="cli${i}_${ci}"><input type="checkbox" onchange="toggleItem(this,'cli${i}_${ci}',${i})"><span class="cl-label">${item.label}</span><span class="cl-badge">${item.type}</span></label>`).join('')}`).join('');
+
   return `
-<div class="hook" style="color:${m.dark}">
-  <div style="font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;opacity:.55;margin-bottom:.5rem">Module ${m.num} · Hook</div>
+<div class="hook" style="background:${m.bg};border-left-color:${m.color}">
+  <div class="hook-eyebrow" style="color:${m.dark}">Module ${m.num} · Phase: ${m.phase}</div>
   <div class="hook-q" style="color:${m.dark}">${m.hook}</div>
   <div class="hook-sub" style="color:${m.dark}">${m.hookSub}</div>
 </div>
 
-<div class="mod-grid">
+<div class="mod-tabs" id="tabs${i}">
+  <button class="mod-tab active" onclick="switchTab(${i},'overview',this)">Overview</button>
+  <button class="mod-tab" onclick="switchTab(${i},'stories',this)">Stories & Practice</button>
+  <button class="mod-tab" onclick="switchTab(${i},'resources',this)">Resources</button>
+  <button class="mod-tab" onclick="switchTab(${i},'checklist',this)">Checklist</button>
+</div>
 
+<div class="tab-panel" id="tab${i}_overview">
+<div class="mod-grid">
 <div class="mod-main">
   <div class="anchor">
     <div class="anchor-vis" style="background:${m.bg}">${m.emoji}</div>
-    <div>
-      <div class="anchor-label">Memory anchor</div>
-      <div class="anchor-name">${m.title}</div>
-      <div class="anchor-metaphor">${m.metaphor}</div>
-    </div>
+    <div><div class="anchor-label">Memory anchor · ${m.phase}</div><div class="anchor-name">${m.title}</div><div class="anchor-metaphor">${m.metaphor}</div></div>
   </div>
-
-  <div class="sec-hdr"><div class="sec-hdr-icon" style="background:${m.bg}"><i class="ti ti-messages" aria-hidden="true" style="color:${m.color};font-size:14px"></i></div><div class="sec-hdr-title">Stories</div></div>
-  ${stories}
-
-  <div class="model-card" style="background:${m.color};margin-top:1.75rem">
+  <div class="obj-card">
+    <div class="sec-hdr" style="margin:0 0 .75rem"><div class="sec-hdr-icon" style="background:${m.bg}"><i class="ti ti-target" aria-hidden="true" style="color:${m.color};font-size:14px"></i></div><div class="sec-hdr-title">Learning Objectives</div></div>
+    <div class="obj-grid">${obj1?'<div>'+obj1+'</div>':''}${obj2?'<div>'+obj2+'</div>':''}</div>
+  </div>
+  <div class="model-card" style="background:${m.color}">
     <div class="model-label">Mental model — keep this in your head</div>
     <div class="model-text">${m.model}</div>
     <div class="model-emoji">${m.emoji}</div>
   </div>
-
   <div class="recall-card">
-    <div class="recall-q">
-      <div class="recall-q-label">Active recall challenge</div>
-      <div class="recall-q-text">${m.recall.q}</div>
-    </div>
-    <div class="recall-a" id="ra${i}">
-      <div class="recall-a-label">Answer</div>
-      <div class="recall-a-text">${m.recall.a}</div>
-    </div>
+    <div class="recall-q"><div class="recall-q-label">Active recall challenge</div><div class="recall-q-text">${m.recall.q}</div></div>
+    <div class="recall-a" id="ra${i}"><div class="recall-a-label">Answer</div><div class="recall-a-text">${m.recall.a}</div></div>
     <button class="recall-btn" onclick="reveal(${i},this)">I've thought about it — show answer</button>
   </div>
+</div>
+<div class="mod-sidebar">
+  <div class="kmap"><div class="kmap-label">Your path so far</div><div class="kmap-inner">${kmap}</div></div>
+  <div class="tips-box">
+    <div class="sec-hdr" style="margin:0 0 .75rem"><div class="sec-hdr-icon" style="background:${m.bg}"><i class="ti ti-bulb" aria-hidden="true" style="color:${m.color};font-size:14px"></i></div><div class="sec-hdr-title">Management Tips</div></div>
+    <div class="tips-list">${tipsList}</div>
+  </div>
+  <div class="aha" style="background:var(--amber-light)">
+    <div class="aha-icon">⚡</div>
+    <div><div class="aha-title" style="color:var(--amber-dark)">${m.aha.title}</div><div class="aha-body" style="color:var(--amber-dark)">${m.aha.text}</div></div>
+  </div>
+</div>
+</div>
+</div>
 
-  <div class="feynman">
-    <div class="feynman-label">Feynman test</div>
+<div class="tab-panel hidden" id="tab${i}_stories">
+  <div class="sec-hdr" style="margin-top:1.5rem"><div class="sec-hdr-icon" style="background:${m.bg}"><i class="ti ti-messages" aria-hidden="true" style="color:${m.color};font-size:14px"></i></div><div class="sec-hdr-title">Stories</div></div>
+  ${stories}
+  <div class="feynman" style="margin-top:1.75rem">
+    <div class="feynman-label">Feynman test — teach it to understand it</div>
     <div class="feynman-prompt">${m.feynmanPrompt}</div>
     <textarea id="feyn${i}" placeholder="Write your explanation here..."></textarea>
     <button class="feynman-btn" onclick="checkFeynman(${i})">Get feedback ↗</button>
     <div class="feynman-feedback" id="ff${i}" style="background:${m.bg};color:${m.dark}"></div>
   </div>
+  <div class="sec-hdr" style="margin-top:1.75rem"><div class="sec-hdr-icon" style="background:${m.bg}"><i class="ti ti-cards" aria-hidden="true" style="color:${m.color};font-size:14px"></i></div><div class="sec-hdr-title">Flashcards — tap to flip</div></div>
+  <div class="cards-grid">${cards}</div>
 </div>
 
-<div class="mod-sidebar">
-  <div class="kmap">
-    <div class="kmap-label">Knowledge connection</div>
-    <div class="kmap-inner">${kmap}</div>
-  </div>
-
-  <div style="background:var(--surface);border:.5px solid var(--border);border-radius:var(--r);padding:1.25rem 1.4rem">
-    <div class="sec-hdr" style="margin:0 0 1rem 0"><div class="sec-hdr-icon" style="background:${m.bg}"><i class="ti ti-bulb" aria-hidden="true" style="color:${m.color};font-size:14px"></i></div><div class="sec-hdr-title">Management tips</div></div>
-    <div style="display:flex;flex-direction:column;gap:12px">${tacticsCol}</div>
-  </div>
-
-  <div class="aha" style="background:var(--amber-light)">
-    <div class="aha-icon">⚡</div>
-    <div>
-      <div class="aha-title" style="color:var(--amber-dark)">${m.aha.title}</div>
-      <div class="aha-body" style="color:var(--amber-dark)">${m.aha.text}</div>
-    </div>
-  </div>
-
-  <div class="palace">
-    <div class="palace-label">Memory palace</div>
-    <div class="palace-grid">${palace}</div>
-  </div>
-
-  <div>
-    <div class="sec-hdr" style="margin:0 0 .85rem 0"><div class="sec-hdr-icon" style="background:${m.bg}"><i class="ti ti-building-skyscraper" aria-hidden="true" style="color:${m.color};font-size:14px"></i></div><div class="sec-hdr-title">Real-world examples</div></div>
-    <div class="companies">${companies}</div>
-  </div>
-
-  <div>
-    <div class="sec-hdr" style="margin:0 0 .85rem 0"><div class="sec-hdr-icon" style="background:${m.bg}"><i class="ti ti-cards" aria-hidden="true" style="color:${m.color};font-size:14px"></i></div><div class="sec-hdr-title">Flashcards — tap to flip</div></div>
-    ${cards}
-  </div>
+<div class="tab-panel hidden" id="tab${i}_resources">
+  <div class="res-list">${resHTML}</div>
 </div>
 
+<div class="tab-panel hidden" id="tab${i}_checklist">
+  <div class="checklist-hdr">
+    <span class="cl-prog-lbl" id="clprog${i}">0 / ${totalCl} completed</span>
+    <div class="cl-prog-wrap"><div class="cl-prog-fill" id="clprogfill${i}" style="background:${m.color}"></div></div>
+  </div>
+  ${clHTML}
 </div>
 
 <div class="bottom-nav">
   <button class="nav-btn" onclick="prevMod()" ${i===0?'disabled':''}>← Previous</button>
   <button class="nav-btn done-btn" style="background:${m.bg};color:${m.dark}" onclick="markDone(${i})">✓ Mark complete</button>
-  <button class="nav-btn primary" style="background:${m.color}" onclick="nextMod()" ${i===5?'disabled':''}>Next →</button>
+  <button class="nav-btn primary" style="background:${m.color}" onclick="nextMod()" ${i===MODULES.length-1?'disabled':''}>Next →</button>
 </div>`;
 }
 
 function showMod(i){
   document.querySelectorAll('.section').forEach(s=>s.classList.remove('visible'));
-  document.querySelectorAll('.mod-pill').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.mod-pill').forEach((p,pi)=>{
+    p.classList.remove('active');
+    p.style.cssText='';
+  });
   document.getElementById('sec'+i).classList.add('visible');
-  document.getElementById('pill'+i).classList.add('active');
+  const pill=document.getElementById('pill'+i);
+  pill.classList.add('active');
+  pill.style.cssText=`background:${MODULES[i].color};color:#fff;border-color:${MODULES[i].color}`;
   cur=i;
+  // Update phase highlight
+  document.querySelectorAll('.phase-card').forEach(c=>c.classList.remove('active'));
+  const phaseCard=document.getElementById('phase_'+MODULES[i].phase);
+  if(phaseCard) phaseCard.classList.add('active');
   window.scrollTo({top:0,behavior:'smooth'});
 }
 
-function nextMod(){if(cur<5)showMod(cur+1);}
+function nextMod(){if(cur<MODULES.length-1)showMod(cur+1);}
 function prevMod(){if(cur>0)showMod(cur-1);}
 
 function markDone(i){
   done.add(i);
-  const pct=Math.round(done.size/6*100);
+  const pct=Math.round(done.size/MODULES.length*100);
   document.getElementById('mainProg').style.width=pct+'%';
-  document.getElementById('progLabel').textContent=done.size+' of 6 modules completed';
-  activateWeek(Math.min(i+1,8));
-  if(i<5)setTimeout(()=>showMod(i+1),350);
+  document.getElementById('progLabel').textContent=done.size+' of '+MODULES.length+' modules completed ('+pct+'%)';
+  if(i<MODULES.length-1)setTimeout(()=>showMod(i+1),350);
+}
+
+function switchTab(i,name,btn){
+  document.querySelectorAll('#tabs'+i+' .mod-tab').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('#sec'+i+' .tab-panel').forEach(p=>p.classList.add('hidden'));
+  const panel=document.getElementById('tab'+i+'_'+name);
+  if(panel) panel.classList.remove('hidden');
+}
+
+function toggleItem(cb,id,modIdx){
+  const label=document.getElementById(id);
+  if(label) label.classList.toggle('cl-done',cb.checked);
+  updateClProgress(modIdx);
+}
+
+function updateClProgress(i){
+  const all=document.querySelectorAll('#tab'+i+'_checklist .cl-item input');
+  const done=[...all].filter(c=>c.checked).length;
+  const total=all.length;
+  const lbl=document.getElementById('clprog'+i);
+  const fill=document.getElementById('clprogfill'+i);
+  if(lbl) lbl.textContent=done+' / '+total+' completed';
+  if(fill) fill.style.width=(total>0?Math.round(done/total*100):0)+'%';
 }
 
 function reveal(i,btn){
@@ -359,14 +1064,14 @@ function flip(id){document.getElementById(id).classList.toggle('flipped');}
 function checkFeynman(i){
   const txt=document.getElementById('feyn'+i).value.trim();
   const fb=document.getElementById('ff'+i);
-  if(txt.length<20){fb.textContent='Try writing a bit more — the Feynman technique works best when you commit to a full explanation.';fb.classList.add('shown');return;}
-  const tips=['Good start. Did you use an analogy? The best Feynman explanations avoid jargon and anchor to something the listener already knows.','Nice. Now try removing every technical word. If the concept still makes sense without the vocabulary, you truly understand it.','Solid explanation. Ask yourself: if a 10-year-old couldn\'t follow this, what would you change? That edit is your insight.','Well done. Consider adding a concrete example — the "what would this look like in real life?" step is where most explanations gain power.'];
+  if(txt.length<20){fb.textContent='Try writing a bit more — the Feynman technique works best with a full explanation.';fb.classList.add('shown');return;}
+  const tips=['Good start. Did you use an analogy? The best Feynman explanations avoid jargon and anchor to something concrete the listener already knows.','Nice. Now try removing every technical word. If the concept still makes sense without the vocabulary, you truly understand it.','Solid explanation. Ask: if someone who had never been in a tech company read this, would they follow it? That constraint is where real understanding lives.','Well done. Consider adding a concrete example — the "what would this look like on Tuesday at 2pm?" test is where most explanations gain their power.'];
   fb.textContent=tips[i%tips.length];
   fb.classList.add('shown');
 }
 
-buildWeeks();buildNav();buildSections();
-</script>
+buildPhases();buildTimeline();buildNav();buildSections();
 
+</script>
 </body>
 </html>
